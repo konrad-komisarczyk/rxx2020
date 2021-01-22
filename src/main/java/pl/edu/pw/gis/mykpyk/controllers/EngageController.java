@@ -79,13 +79,10 @@ public class EngageController {
                                 }
                             }
                             result = "WON";
-
-
+                            
                             enemyRepository.delete(enemy);
                         }
 
-
-                        //heroRepository.save(hero);
                         heroRepository.update(hero);
 
                         return HttpResponse.ok(result);

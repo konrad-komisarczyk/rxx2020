@@ -1,4 +1,7 @@
-var lng = 21.012420, lat = 52.220190;
+var lng = 21.012420;
+var lat = 52.220190;
+// var lat;
+// var lng;
 
 var zoom = 18;
 var map, lngLat;

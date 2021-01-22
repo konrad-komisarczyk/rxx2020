@@ -61,10 +61,12 @@ public class Generator {
             if (enemyTypeOptional.isPresent()) {
                 EnemyType enemyType = enemyTypeOptional.get();
 
-                int numberNearby = 0; //TODO
+
+                List<Enemy> enemiesNerby = enemyRepository.selectFromRectangle(e, w, s, n);
+                int numberNearby = enemiesNerby.size();
 
                 if (numberNearby <= Math.floor(enemyType.getSpawnIntensity())) {
-                    int nOfEnemies = (int) Math.floor(random.nextDouble() + enemyType.getSpawnIntensity());
+                    int nOfEnemies = (int) Math.floor(random.nextDouble() + enemyType.getSpawnIntensity()) - numberNearby;
 
                     if (enemyType.getSpawnKey() == null) {
                         for (int j = 0; j < nOfEnemies; j++) {

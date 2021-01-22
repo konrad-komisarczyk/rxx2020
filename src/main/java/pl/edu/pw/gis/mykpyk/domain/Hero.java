@@ -67,7 +67,7 @@ public class Hero {
         this.userId = userId;
         exp = 0;
         level = 1;
-        avatarLink = "TODO"; //TODO correct
+        avatarLink = "TODO"; //TODO
         health = 100;
         maxHealth = 100;
         strength = 20;
