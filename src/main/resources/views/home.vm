@@ -1,0 +1,220 @@
+#if( $loggedIn )
+
+<html>
+<head>
+    <style>
+        #include("views/css/index.css")
+    </style>
+
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+
+    <script>
+        var login = "$username";
+    </script>
+
+    <script>
+        #include("views/js/heroPanel.js")
+    </script>
+    <script>
+        #include("views/js/menuPanel.js")
+    </script>
+    <script>
+        #include("views/js/equipmentPanel.js")
+    </script>
+    <script>
+        #include("views/js/engage.js")
+    </script>
+    <script>
+        #include("views/js/enemiesReload.js")
+    </script>
+    <script>
+        #include("views/js/itemsLoad.js")
+    </script>
+
+</head>
+<body>
+<div id="mapdiv"></div>
+
+<div id="buttons"><button type="button" id="equipment" class="menuButton lighterButton">EQUIPMENT</button><button type="button" id="menu" class="menuButton darkerButton">MENU</button><button type="button" id="hero" class="menuButton lighterButton">YOUR HERO</button></div>
+
+<div id="interaction">
+    <div id="interactionInfo">
+        <div id="interactionImage">
+            <img src="img/1.png">
+        </div>
+        <div id="interactionTitle">
+            Crossroads Spirit
+        </div>
+        <!--<div id="interactionSubtitle">
+          Level 1
+        </div>-->
+    </div>
+    <div id="interactionButtons">
+        <button type="button" id="interactionConfirm">ENGAGE</button>
+    </div>
+</div>
+
+<div id="heroPanel">
+    <div id="avatar" class="heroInfoDiv">
+        <img id="avatarImg" src="conf/avatar.PNG">
+    </div>
+    <div id="levelInfo" class="heroInfoDiv">
+        Current level: <span id="level">1</span> <br/>
+        Current exp: <span id="exp">0</span><br/>
+        <!--  Exp needed to next lvl: <span id="expToNextLevel">?</span> <br/> Nie mieści się!-->
+        <!-- Killed enemy types: <span id="killedTypes">?</span><br/> -->
+        <!-- Enemy types needed to lvl up: <span id="killedTypesToNextLevel">?</span> -->
+    </div>
+    <div id="learning" class="heroInfoDiv">
+        Available learning points: <span id="learningPoints">1</span>
+    </div>
+    <div id="healthDiv" class="heroInfoDiv">
+        Current health: <span id="health">10</span><br/>
+        Max health: <span id="maxHealth">100</span>
+        <button id="increaseHealth">+</button>
+    </div>
+    <div id="strengthDiv" class="heroInfoDiv">
+        Strength: <span id="strength">9</span>
+        <button id="increaseStrength">+</button>
+    </div>
+    <div id="defenseDiv" class="heroInfoDiv">
+        Defense: <span id="defense">10</span>
+        <button id="increaseDefense">+</button>
+    </div>
+    <div id="speedDiv" class="heroInfoDiv">
+        Speed: <span id="speed">10</span>
+        <button id="increaseSpeed">+</button>
+    </div>
+    <div >
+        <span class="back"><button id="backFromHeroPanel">BACK</button></span>
+    </div>
+</div>
+
+<div id="equipmentPanel">
+    <center>
+        <div id="equipmentTop">
+            <div id="equipmentTopLeft">
+                <table id="tableEquiped" class="equipmentTable" border="5" bordercolor="chartreuse" bgcolor="#0fc10f" align="center" >
+                    <tr>
+                        <th colspan="2">EQUIPPED</th>
+                    </tr>
+                    <tr>
+                        <td id = "weaponSlot" class="biggerCell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        <td id = "armorSlot" class="biggerCell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div id="equipmentTopRight">
+
+                <table id="tableTrash" class="equipmentTable" border="5" bordercolor="chartreuse" bgcolor="#0fc10f" align="center" >
+                    <tr>
+                        <th colspan="1">TRASH</th>
+                    </tr>
+                    <tr>
+                        <td id = "equipmentTrash" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </center>
+
+    <table id="tableBackpack" class="equipmentTable"  border="5" bordercolor="chartreuse" bgcolor="#0fc10f" align="center">
+        <tr>
+            <th colspan="5">BACKPACK</th>
+        </tr>
+        <tr>
+            <td id = "backpack0" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack1" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack2" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack3" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack4" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+            <td id = "backpack5" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack6" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack7" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack8" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack9" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+            <td id = "backpack10" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack11" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack12" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack13" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack14" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+            <td id = "backpack15" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack16" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack17" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack18" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack19" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+    </table>
+    <div id="itemInfo">
+        <div id="itemInfoName">
+
+        </div>
+        <div id="itemInfoDescription">
+
+        </div>
+        <button type="button" onclick="hideItemInfo();">Hide</button>
+    </div>
+    <div >
+        <span class="back"><button id="backFromEquipmentPanel">BACK</button></span>
+    </div>
+
+</div>
+
+<div id="menuPanel">
+    <div id="title">
+        <h1>DXX 2020</h1>
+    </div>
+    <div id="colorTheme">
+        Here changing your avatar:
+    </div>
+    <div id="changingAvatar">
+        <input id="avatarLink" placeholder="Link to your new avatar">
+        <button type="button" onclick="changeAvatar();">Change avatar</button>
+    </div>
+    <div id="logoutContainer" style="height: 50%;">
+        <button id="logout">LOG OUT</button>
+    </div>
+    <span class="back">
+      <button id="hideMenu" onclick="hideMenu()">BACK</button>
+    </span>
+</div>
+
+<div id="movingModePanel">
+    <div id="cheatInputBox" style="position: absolute; left: 1%; top: 1%;">
+        <input type="text" id="cheatInput" placeholder="Enter cheat" onkeydown="doActionIfEnter(this)">
+    </div>
+    <div id="movingMode" class="heroInfoDiv" hidden style="background: #73be73">
+        <span id = "movingModeInfo">Do you want to enable tester mode?</span>
+        <input type="checkbox" id="movingModeCheckbox">
+    </div>
+</div>
+
+<script>
+        #include("views/js/drag.js")
+</script>
+<script>
+        #include("views/js/index.js")
+</script>
+</body></html>
+
+#else
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>You are not logged in</h1>
+<p><a href="/login/auth">Login</a></p>
+</body>
+</html>
+#end

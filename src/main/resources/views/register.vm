@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RXX2020 registration page</title>
+</head>
+<body>
+    <form target="/registration/registered" method="get">
+        <label for="login">Login: </label>
+        <input name="login"><br/>
+
+        <label for="password">Pasword: </label>
+        <input name="password" type="password"><br/>
+
+        <button type="submit">REGISTER</button>
+    </form>
+</body>
+</html>

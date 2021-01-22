@@ -1,0 +1,13 @@
+#login {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: calc(50% - 40px);
+    border: 0;
+    margin: 0;
+    padding: 20px;
+    background: chartreuse;
+    font-size: x-large;
+    font-family: Arimo, serif;
+    text-align: center;
+}

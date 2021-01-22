@@ -1,0 +1,30 @@
+micronaut:
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: "/**"
+        paths: "classpath:public"
+  security:
+    intercept-url-map:
+      - pattern: /img/*
+        http-method: GET
+        access:
+          - isAnonymous()
+    authentication: session
+    redirect:
+      login-success: /
+      login-failure: /login/authFailed
+datasources:
+  default:
+    url: ${JDBC_URL:`jdbc:postgresql://myk-pyk-corp.postgres.database.azure.com:5432/rxx2020`}
+    username: ${JDBC_USER:mslapek@myk-pyk-corp}
+    password: ${JDBC_PASSWORD:"password123!"}
+    driverClassName: ${JDBC_DRIVER:org.postgresql.Driver}
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
