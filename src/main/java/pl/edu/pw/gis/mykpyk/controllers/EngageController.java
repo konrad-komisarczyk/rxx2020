@@ -75,16 +75,19 @@ public class EngageController {
                             if (hero.getLevel() < MainConf.neededExpForLvl.size()) {
                                 while (hero.getExp() >= MainConf.neededExpForLvl.get(hero.getLevel())) {
                                     hero.setLevel(hero.getLevel() + 1);
+                                    hero.setTalentPoints(hero.getTalentPoints() + 10);
                                 }
                             }
                             result = "WON";
 
-                            //TODO Drop
 
                             enemyRepository.delete(enemy);
                         }
 
-                        heroRepository.save(hero);
+
+                        //heroRepository.save(hero);
+                        heroRepository.update(hero);
+
                         return HttpResponse.ok(result);
                     } else {
                         return HttpResponse.notModified();

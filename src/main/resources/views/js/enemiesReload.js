@@ -36,8 +36,9 @@ function logEnemies(data) {
             }
         };
 
-        window[("enemyMarker" + enemy.id)].events.register("click", window[("enemyMarker" + enemy.id)], module.getX.bind(module));
+        window[("enemyMarker" + enemy.id)].events.register("click", window[("enemyMarker" + enemy.id)], module.getX.bind(module));module
         markers.addMarker(eval("enemyMarker" + enemy.id));
+
 
     }
 }

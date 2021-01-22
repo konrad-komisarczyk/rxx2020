@@ -5,10 +5,14 @@ var map, lngLat;
 var playerMarker;
 var icon;
 
+var markers;
+
 // var playerLat, playerLng;
 function success(position) {
-    lat  = position.coords.latitude; // change to playerLat = to get test location
-    lng = position.coords.longitude; // change to playerLng = to get test location
+    if (!document.getElementById('movingModeCheckbox').checked) {
+        lat  = position.coords.latitude; // change to playerLat = to get test location
+        lng = position.coords.longitude; // change to playerLng = to get test location
+    }
     actualizeMap();
     reloadEnemies();
 }
@@ -37,7 +41,7 @@ if (window.navigator.geolocation) {
             map.getProjectionObject() // to Spherical Mercator Projection
         );
 
-    var markers = new OpenLayers.Layer.Markers("Markers");
+    markers = new OpenLayers.Layer.Markers("Markers");
     map.addLayer(markers);
 
     map.setCenter(lngLat, zoom);
@@ -47,7 +51,6 @@ if (window.navigator.geolocation) {
     fetch("/player?login=" + login)
         .then(response => response.json())
     .then(data => {
-        console.log(data);
         icon = new OpenLayers.Icon(data.avatarLink, size, offset);
                     playerMarker = new OpenLayers.Marker(lngLat, icon);
                     playerMarker.events.register("click", playerMarker, function() {

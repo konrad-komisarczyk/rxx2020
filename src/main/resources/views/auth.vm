@@ -15,6 +15,9 @@
 </head>
 <body>
 <div id="login">
+    <img src="/img/baner.png" id="banner">
+    <br/>
+    <br/>
     <form name="loginForm" action="/login" method="POST">
         <label for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>
@@ -32,6 +35,10 @@
             <br/>
                 <span style="color: #ff0000;">Login Failed</span>
         #end
+
+        <br/>
+        <br/>
+        <a href="/register">Do you need to register?</a>
     </form>
 </div>
 

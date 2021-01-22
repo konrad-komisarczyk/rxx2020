@@ -223,19 +223,19 @@ body {
 }
 
 #armorSlot {
-    background-image: url("../img/emptyArmorSlot.PNG");
+    background-image: url("/img/emptyArmorSlot.PNG");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 #weaponSlot {
-    background-image: url("../img/emptyWeaponSlot.PNG");
+    background-image: url("/img/emptyWeaponSlot.PNG");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 #equipmentTrash {
-    background-image: url("../img/emptyTrashSlot.png");
+    background-image: url("/img/emptyTrashSlot.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -252,4 +252,8 @@ body {
 
 #itemInfoName {
     font-weight: bolder;
+}
+
+#banner {
+    width: calc(50%);
 }

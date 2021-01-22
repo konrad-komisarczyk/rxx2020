@@ -2,8 +2,15 @@
 <html>
 <head>
     <title>RXX2020 registration page</title>
+
+
+    <style>
+    #include("views/css/login.css")
+    </style>
 </head>
 <body>
+<div id="login">
+    <img src="/img/baner.png" id="banner">
     <form target="/registration/registered" method="get">
         <label for="login">Login: </label>
         <input name="login"><br/>
@@ -13,5 +20,9 @@
 
         <button type="submit">REGISTER</button>
     </form>
+    <br/>
+    <br/>
+    <a href="/">Go to main page</a>
+</div>
 </body>
 </html>

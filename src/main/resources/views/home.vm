@@ -170,19 +170,24 @@
 </div>
 
 <div id="menuPanel">
+
+    <br/>
     <div id="title">
-        <h1>DXX 2020</h1>
+        <img src="/img/baner.png" id="banner">
     </div>
-    <div id="colorTheme">
-        Here changing your avatar:
-    </div>
+    <br/>
     <div id="changingAvatar">
+        <label for="avatarLink">Change your avatar</label><br/>
         <input id="avatarLink" placeholder="Link to your new avatar">
         <button type="button" onclick="changeAvatar();">Change avatar</button>
     </div>
-    <div id="logoutContainer" style="height: 50%;">
-        <button id="logout">LOG OUT</button>
+    <br/>
+    <div id="logoutContainer">
+        <form action="logout" method="POST">
+            <input id="logout" type="submit" value="Logout"/>
+        </form>
     </div>
+
     <span class="back">
       <button id="hideMenu" onclick="hideMenu()">BACK</button>
     </span>
@@ -210,11 +215,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <style>
+    #include("views/css/login.css")
+    </style>
+
+    <title>DXX 2020</title>
 </head>
 <body>
-<h1>You are not logged in</h1>
-<p><a href="/login/auth">Login</a></p>
+<div id="login">
+    <img src="/img/baner.png" width="700px">
+    <h1>You are not logged in</h1>
+    <p><a href="/login/auth">Login</a></p>
+</div>
 </body>
 </html>
 #end
