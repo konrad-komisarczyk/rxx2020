@@ -54,4 +54,14 @@ public class BackpackSlot {
     public void setPosition(Integer position) {
         this.position = position;
     }
+
+    public BackpackSlot(@NotNull Integer heroId, @NotNull Integer itemId, @NotNull Integer position) {
+        this.heroId = heroId;
+        this.itemId = itemId;
+        this.position = position;
+    }
+
+    public BackpackSlot() {
+    }
+
 }

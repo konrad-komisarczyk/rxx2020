@@ -13,6 +13,8 @@ import pl.edu.pw.gis.mykpyk.services.MainConf;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 @Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("/engage")
@@ -22,6 +24,8 @@ public class EngageController {
     @Inject private EnemyTypeRepository enemyTypeRepository;
     @Inject private HeroRepository heroRepository;
     @Inject private UserRepository userRepository;
+    @Inject private DropProbabilityRepository dropProbabilityRepository;
+    @Inject private BackpackSlotRepository backpackSlotRepository;
 
     @Get()
     public HttpResponse<String> engage(HttpRequest<?> request) {
@@ -80,7 +84,37 @@ public class EngageController {
                             }
                             result = "WON";
 
-                            //TODO DROP
+                            Random random = new Random();
+
+                            List<DropProbability> dropProbabilities =
+                                    dropProbabilityRepository.findByEnemyTypeId((int) (long) enemyType.getId());
+
+                            for (DropProbability dropProbability : dropProbabilities) {
+                                //over all drop probabilities for this enemy type
+                                if (random.nextDouble() < dropProbability.getProbability()) {
+                                    List<Integer> usedSlots =
+                                            backpackSlotRepository.findByHeroId((int) (long) hero.getId()).stream()
+                                                    .map(BackpackSlot::getPosition)
+                                                    .collect(Collectors.toList());
+                                    for (Integer i = 0; i < MainConf.backpackSize; i++) {
+                                        // checking all backpack slots if is free
+                                        if (!usedSlots.contains(i)) { //found free backpack slot
+
+                                            BackpackSlot backpackSlotNew = new BackpackSlot(
+                                                    (int) (long) hero.getId(),
+                                                    dropProbability.getItemId(),
+                                                    i
+                                            );
+
+                                            backpackSlotRepository.save(backpackSlotNew);
+                                            break;
+                                        }
+                                    }
+                                    //here going from break
+
+                                }
+                            }
+
                             
                             enemyRepository.delete(enemy);
                         }
