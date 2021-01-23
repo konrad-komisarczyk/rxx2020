@@ -90,4 +90,17 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+    public boolean isWeapon() {
+        return type.equals("weapon");
+    }
+
+    public boolean isArmor() {
+        return type.equals("armor");
+    }
+
+    public boolean isUsable() {
+        return type.equals("usable");
+    }
 }
