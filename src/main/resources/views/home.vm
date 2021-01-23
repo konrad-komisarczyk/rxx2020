@@ -94,34 +94,33 @@
     <center>
         <div id="equipmentTop">
             <div id="equipmentTopLeft">
-                <table id="tableEquiped" class="equipmentTable" border="5" bordercolor="chartreuse" bgcolor="#0fc10f" align="center" >
+                <table id="tableEquiped" class="equipmentTable" align="center" >
                     <tr>
                         <th colspan="2">EQUIPPED</th>
                     </tr>
                     <tr>
-                        <td id = "weaponSlot" class="biggerCell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                        <td id = "armorSlot" class="biggerCell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        <td id="weaponSlot" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        <td id="armorSlot" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                     </tr>
                 </table>
 
             </div>
             <div id="equipmentTopRight">
 
-                <table id="tableTrash" class="equipmentTable" border="5" bordercolor="chartreuse" bgcolor="#0fc10f" align="center" >
+                <table id="tableTrash" class="equipmentTable" align="center" >
                     <tr>
                         <th colspan="1">TRASH</th>
                     </tr>
                     <tr>
-                        <td id = "equipmentTrash" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        <td id="equipmentTrash" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                     </tr>
                 </table>
-
             </div>
 
         </div>
     </center>
 
-    <table id="tableBackpack" class="equipmentTable"  border="5" bordercolor="chartreuse" bgcolor="#0fc10f" align="center">
+    <table id="tableBackpack" class="equipmentTable" align="center">
         <tr>
             <th colspan="5">BACKPACK</th>
         </tr>

@@ -251,8 +251,6 @@ input {
     background-repeat: no-repeat;
 }
 
-.equipmentTable{
-}
 
 #itemInfo {
     border: 1px solid darkgreen;
@@ -269,4 +267,19 @@ input {
 
 #banner {
     width: calc(50%);
+}
+
+.equipmentTable {
+    border: 1px solid #003800;
+    border-radius: 5px;
+    background-image: url("/img/background.png");
+    color: #2d0101;
+    font-weight: bold;
+    font-size: x-large;
+    margin-bottom: 5px;
+}
+
+.equipmentTable > th, td {
+    border: 4px solid #003800;
+    border-radius: 5px;
 }

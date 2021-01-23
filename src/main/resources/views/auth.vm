@@ -25,7 +25,7 @@
         <input type="password" placeholder="Password" name="password" required>
         <br/>
 
-        <button type="submit" class="submitButton">Sign in</button>
+        <button type="submit" class="submitButton">Log in</button>
 
         #if( $errors )
             <p><span style="color: red; font-weight: bolder;">Login Failed!</span></p>
