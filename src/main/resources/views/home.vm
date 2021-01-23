@@ -103,7 +103,6 @@
                         <td id="armorSlot" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                     </tr>
                 </table>
-
             </div>
             <div id="equipmentTopRight">
 
@@ -162,7 +161,7 @@
         </div>
         <button type="button" onclick="hideItemInfo();" class="standardButton">Hide</button>
     </div>
-    <div >
+    <div>
         <span class="back"><button id="backFromEquipmentPanel" class="standardButton">BACK</button></span>
     </div>
 

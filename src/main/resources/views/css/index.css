@@ -230,7 +230,20 @@ input {
 }
 
 #equipmentTop {
-    display: inline-block;
+    display: flex;
+    position: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+    width: 30%;
+}
+
+#equipmentTopLeft {
+    margin-right: 50px;
+}
+
+#equipmentTopRight {
 }
 
 #armorSlot {
@@ -276,7 +289,8 @@ input {
     color: #2d0101;
     font-weight: bold;
     font-size: x-large;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: 2px;
 }
 
 .equipmentTable > th, td {
