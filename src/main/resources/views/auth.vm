@@ -31,6 +31,14 @@
             <p><span style="color: red; font-weight: bolder;">Login Failed!</span></p>
         #end
 
+        #if( $registered )
+            <p><span style="color: darkblue; font-weight: bolder;">Registration completed succesfully! You can now log in.</span></p>
+        #end
+
+        #if( $notRegistered )
+            <p><span style="color: red; font-weight: bolder;">Registration failed!</span></p>
+        #end
+
         <br/>
         <br/>
         <a href="/register">Do you need to register?</a>

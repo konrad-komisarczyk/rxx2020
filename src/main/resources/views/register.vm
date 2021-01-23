@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DXX2021 registration page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>RXX2020 registration page</title>
     <style>
         #include("views/css/login.css")
     </style>
 </head>
 <body>
 <div id="login">
-    <img src="/img/baner.png" id="banner">
-    <form target="../registered" method="GET">
-        <input name="login" placeholder="Login">
+    <img src="/img/baner.png" id="banner" >
+    <form name="registration" action="/registered" method="get">
+        <input id="loginField" name="login" placeholder="Login">
         <br/>
 
-        <input name="password" type="password" placeholder="Password">
+        <input id="passwordField" name="password" type="password" placeholder="Password">
         <br/>
 
-        <button type="submit" class="submitButton">Register</button>
+        <button type="submit" class="submitButton" onclick="register()">Register</button>
     </form>
     <br/>
     <br/>
     <a href="/login/auth">Go to login page</a>
+
 </div>
 </body>
 </html>
