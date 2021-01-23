@@ -124,32 +124,32 @@
             <th colspan="5">BACKPACK</th>
         </tr>
         <tr>
-            <td id = "backpack0" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack1" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack2" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack3" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack4" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack5" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
         <tr>
-            <td id = "backpack5" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack6" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack7" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack8" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack9" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack10" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
         <tr>
-            <td id = "backpack10" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack11" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack12" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack13" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack14" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack15" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
         <tr>
-            <td id = "backpack15" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack16" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack17" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack18" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             <td id = "backpack19" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id = "backpack20" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
     </table>
     <div id="itemInfo">

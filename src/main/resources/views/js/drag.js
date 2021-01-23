@@ -18,8 +18,16 @@ function drop(ev) {
   console.log(targetId);
 
   if(targetId === "equipmentTrash"){
-    fetch('player/delete/' + reduceFromWhich(data), {method: 'DELETE'})
-                  .then(response => response.json())
+      let which = reduceFromWhich(data)
+      if(which === "w"){
+          return;
+          //which = -1;
+      }
+      if(which === "a"){
+          return;
+          //which = -2;
+      }
+    fetch('backpack/deleteItem/?login=' + login +'&pos=' + which, {method: 'DELETE'})
                   .then(() => {deleteTrashItem();})
                   .catch(err => {console.error(err);
                          });
@@ -31,8 +39,14 @@ function drop(ev) {
       }
 
   if(dataClass[0] === "c" && (targetClass[0] === "w" || targetClass[0] === "a" || targetClass === "biggerCell")){
-    fetch('player/consume/' + reduceFromWhich(data))
-              .then(response => response.json())
+      let which = reduceFromWhich(data)
+      if(which === "w"){
+          which = -1;
+      }
+      if(which === "a"){
+          which = -2;
+      }
+      fetch('backpack/consumeItem/?login=' + login +'&pos=' + which)
               .then(() => {deleteConsumedItem();})
               .catch(err => {console.error(err);
                      });
@@ -47,25 +61,35 @@ function drop(ev) {
   if(ev.target.innerHTML !== "" && ev.target.innerHTML[0] !== " ") return; // omijanie zajetych slotow
   if(targetClass[0] === "w" && dataClass[0] !== "w") return; // totally wrong replacement :)
   if(targetClass[0] === "a" && dataClass[0] !== "a") return; // totally wrong replacement :)
-  if(dataClass[0] === "c" && targetClass == "biggerCell") return; // TODO unequippable
+  if(dataClass[0] === "c" && targetClass == "biggerCell") return;
   if(dataClass[0] === "w" && targetId === "armorSlot") return;
   if(dataClass[0] === "a" && targetId === "weaponSlot") return;
-  console.log("CLASSES:   []   ->   []" + dataClass + " & " + targetClass);
 
   console.log(ev.target.innerHTML + " <- passed with this inner HTML target");
   // dataId & targetId to string query
   fromWhich = reduceFromWhich(data);
   toWhich = reduceToWhich(targetId);
-  //var flag = true;
-  fetch('player/moveItem/' + fromWhich + "-" + toWhich)
-          .then(response => response.json())
+    if(fromWhich === "w"){
+        fromWhich = -1;
+    }
+    if(fromWhich === "a"){
+        fromWhich = -2;
+    }
+    if(toWhich === "w"){
+        toWhich = -1;
+    }
+    if(toWhich === "a"){
+        toWhich = -2;
+    }
+
+  fetch('backpack/moveItem/?login='+login+'&posBefore=' + fromWhich + "&posAfter=" + toWhich)
           .then(() => {switchPlaces();})
           .catch(err => {console.error(err);
-                 //flag = true;
                  });
 
   // zmien id z weaponImage na backpackImage!!!
   function switchPlaces(){
+      console.log("DATAAA2: " + data);
   if(targetId[0] === "a"){
     document.getElementById(data).id = "armorImage";
     data = "armorImage";
@@ -79,11 +103,9 @@ function drop(ev) {
       data = "backpackImage" + toWhich;
   }
 
-  console.log(data);
   ev.target.appendChild(document.getElementById(data));
-
-
-}}
+}
+}
 
 
 function reduceFromWhich(text){

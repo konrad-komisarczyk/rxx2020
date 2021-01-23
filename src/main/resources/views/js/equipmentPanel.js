@@ -1,7 +1,6 @@
 var weapon;
 var armor;
 var backpack = [];
-var money; // ? w equipment
 
 function backFromEquipmentPanel(){
     document.getElementById("equipmentPanel").style.visibility = "hidden";
@@ -10,7 +9,7 @@ function backFromEquipmentPanel(){
 function retrieveEquipment(){
 
 
-    fetch('player')
+    fetch('backpack?login=' + login)
                 //gets the JSON out of the response
                 .then(response => response.json())
                 .then(logEquipment);
@@ -20,37 +19,49 @@ function retrieveEquipment(){
 }
 
 function logEquipment(data){
-    weapon = data.weapon;
-    armor = data.armor;
-    backpack = data.backpack;
-    money = data.money;
+    console.log(data);
+    console.log(data[0]);
 
-    if(typeof(weapon) !== "undefined"){
-        imgPath = "weapon"+ weapon.itemIdentifier;
-        itemClass = weapon.type + "_" + weapon.itemIdentifier;
-        document.getElementById("weaponSlot").innerHTML = '<img class="'+itemClass+'" id="weaponImage" src="img\\'+imgPath+'.png" draggable=true height=70 width=70 ondragstart="drag(event)" onClick="itemInfoDisplay(event)" style="display:block;">';
-    }
-    if(typeof(armor) !== "undefined"){
-            imgPath = "armor"+ armor.itemIdentifier;
-            itemClass = armor.type + "_" + armor.itemIdentifier;
+    for (let i = 0; i < data.length; i++) {
+        let position = data[i].position;
+        let itemIdentifier = data[i].itemIdentifier;
+        // weapon
+        if(position === -1){
+            imgPath = "weapon" + itemIdentifier;
+            itemClass = "weapon_" + itemIdentifier;
+            document.getElementById("weaponSlot").innerHTML = '<img class="'+itemClass+'" id="weaponImage" src="img\\'+imgPath+'.png" draggable=true height=70 width=70 ondragstart="drag(event)" onClick="itemInfoDisplay(event)" style="display:block;">';
+        }
+        // armor
+        if(position === -2){
+            imgPath = "armor"+ itemIdentifier;
+            itemClass = "armor_" + itemIdentifier;
             document.getElementById("armorSlot").innerHTML = '<img class="'+itemClass+'" id="armorImage" src="img\\'+imgPath+'.png" draggable=true height=70 width=70 ondragstart="drag(event)" onClick="itemInfoDisplay(event)" style="display:block;">';
 
-        }
 
-    if(typeof(backpack) !== "undefined" && backpack !== null){
-        for( var i = 0; i < backpack.length; i++){
-                    if(typeof(backpack[i]) !== "undefined" && backpack[i] !== null){
-                       imgPath = backpack[i].type + backpack[i].itemIdentifier;
-                       itemClass = backpack[i].type + "_" + backpack[i].itemIdentifier;
-                       document.getElementById("backpack" + i).innerHTML = '<img class = "'+itemClass+'" id="backpackImage'+i+'" src="img\\'+imgPath+'.png" draggable=true height=70 width=70 ondragstart="drag(event)" onClick="itemInfoDisplay(event)" style="display:block;">';
-                    }
-            }
+        }
+        // backpack item
+        if(position > 0 && position <= 20){
+            imgPath = data[i].type + itemIdentifier;
+            itemClass = data[i].type + "_" + itemIdentifier;
+            document.getElementById("backpack" + position).innerHTML = '<img class = "'+itemClass+'" id="backpackImage'+position+'" src="img\\'+imgPath+'.png" draggable=true height=70 width=70 ondragstart="drag(event)" onClick="itemInfoDisplay(event)" style="display:block;">';
+        }
     }
 }
 
 function itemInfoDisplay(ev) {
     var targetId = ev.target.id;
-    fetch('player/getItemDetails/' + reduceFromWhich(targetId))
+
+    var position = reduceFromWhich(targetId);
+    if(position === "w"){
+        position = -1;
+    }
+    if(position === "a"){
+        position = -2;
+    }
+
+
+
+    fetch('backpack/itemDetails/?login=' + login + '&position=' + position)
                   .then(response => response.json())
                   .then(addItemDetails)
                   .catch(err => {console.error(err);

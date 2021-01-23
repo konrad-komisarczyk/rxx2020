@@ -9,6 +9,8 @@ public class BackpackSlotToDisplay {
 
     private Long id;
     private Integer itemId;
+    private String type;
+    private Integer itemIdentifier;
     private Integer position;
     private String image;
 
@@ -28,6 +30,22 @@ public class BackpackSlotToDisplay {
         this.itemId = itemId;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getItemIdentifier() {
+        return itemIdentifier;
+    }
+
+    public void setItemIdentifier(Integer itemIdentifier) {
+        this.itemIdentifier = itemIdentifier;
+    }
+
     public Integer getPosition() {
         return position;
     }
@@ -44,9 +62,11 @@ public class BackpackSlotToDisplay {
         this.image = image;
     }
 
-    public BackpackSlotToDisplay(Long id, Integer itemId, Integer position, String image) {
+    public BackpackSlotToDisplay(Long id, Integer itemId, String type, Integer itemIdentifier, Integer position, String image) {
         this.id = id;
         this.itemId = itemId;
+        this.type = type;
+        this.itemIdentifier = itemIdentifier;
         this.position = position;
         this.image = image;
     }

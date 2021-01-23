@@ -20,6 +20,10 @@ public class Item {
     private String type; // weapon, armor, consumable, neutral
 
     @NotNull
+    @Column(name = "itemIdentifier", nullable = false)
+    private Integer itemIdentifier; // 1,2,3,4  ->  weapon1, weapon2, weapon3, weapon4
+
+    @NotNull
     @Column(name = "damage", nullable = true)
     private Integer damage;
 
@@ -61,6 +65,14 @@ public class Item {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Integer getItemIdentifier() {
+        return itemIdentifier;
+    }
+
+    public void setItemIdentifier(Integer itemIdentifier) {
+        this.itemIdentifier = itemIdentifier;
     }
 
     public Integer getDamage() {
@@ -112,7 +124,7 @@ public class Item {
         return type.equals("armor");
     }
 
-    public boolean isUsable() {
-        return type.equals("usable");
+    public boolean isConsumable() {
+        return type.equals("consumable");
     }
 }
