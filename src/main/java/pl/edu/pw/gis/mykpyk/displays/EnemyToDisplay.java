@@ -1,4 +1,4 @@
-package pl.edu.pw.gis.mykpyk.controllers;
+package pl.edu.pw.gis.mykpyk.displays;
 
 public class EnemyToDisplay {
     private String name;

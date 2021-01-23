@@ -28,33 +28,24 @@ public class RegistrationController {
         Optional<String> login = request.getParameters().getFirst("login");
         Optional<String> password = request.getParameters().getFirst("password");
 
-        System.out.println("a");
-
         if (login.isEmpty() || password.isEmpty()) {
             return HttpResponse.badRequest("You need to provide login and password");
         } else {
-            System.out.println("b");
             List<User> foundUser = userRepository.findByLogin(login.get());
             if (foundUser.size() > 0) {
                 return HttpResponse.badRequest("Login already used");
             } else {
-
-                System.out.println("c");
                 userRepository.save(login.get(), password.get());
-
-                System.out.println("d");
 
                 User user = userRepository.findByLogin(login.get()).get(0);
 
-                System.out.println("e");
                 Hero hero = new Hero(user.getId());
 
-                System.out.println("f");
                 //creating hero for user
                 heroRepository.save(hero);
 
-                System.out.println("g");
 
+                System.out.println("registered new user");
                 return HttpResponse.ok("Registered user.");
             }
         }

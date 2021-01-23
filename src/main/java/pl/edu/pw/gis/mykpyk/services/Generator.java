@@ -1,4 +1,4 @@
-package pl.edu.pw.gis.mykpyk.controllers;
+package pl.edu.pw.gis.mykpyk.services;
 
 import pl.edu.pw.gis.mykpyk.domain.*;
 import pl.edu.pw.gis.mykpyk.services.*;
@@ -48,7 +48,7 @@ public class Generator {
     @Inject private EnemyRepository enemyRepository;
     @Inject private EnemyTypeRepository enemyTypeRepository;
 
-    void generateEnemies(double lat, double lon) {
+    public void generateEnemies(double lat, double lon) {
         Random random = new Random();
 
         double n = lat + MainConf.enemySpawnRadius;
