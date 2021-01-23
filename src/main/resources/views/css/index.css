@@ -55,7 +55,7 @@ body {
     padding: 0;
     z-index: 750;
     visibility: hidden;
-    background-image: url("background.png");
+    background-image: url("img/background.png");
     font-size: x-large;
     font-family: Arimo, serif;
     text-align: center;

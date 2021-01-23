@@ -56,7 +56,7 @@
 
 <div id="heroPanel">
     <div id="avatar" class="heroInfoDiv">
-        <img id="avatarImg" src="conf/avatar.PNG">
+        <img id="avatarImg" src="img/avatar.png">
     </div>
     <div id="levelInfo" class="heroInfoDiv">
         Current level: <span id="level">1</span> <br/>
