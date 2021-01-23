@@ -35,10 +35,6 @@ public class Item {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @NotNull
-    @Column(name = "image", nullable = false)
-    private String image;
-
     public Long getId() {
         return id;
     }
@@ -93,14 +89,6 @@ public class Item {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
 

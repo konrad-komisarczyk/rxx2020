@@ -79,8 +79,6 @@ public class EngageController {
                                 }
                             }
                             result = "WON";
-
-                            //TODO DROP
                             
                             enemyRepository.delete(enemy);
                         }

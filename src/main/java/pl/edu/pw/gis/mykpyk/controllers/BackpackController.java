@@ -5,19 +5,15 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
-import pl.edu.pw.gis.mykpyk.displays.BackpackSlotToDisplay;
 import pl.edu.pw.gis.mykpyk.domain.*;
 
 import javax.inject.Inject;
 import io.micronaut.http.HttpResponse;
-import pl.edu.pw.gis.mykpyk.services.MainConf;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Secured(SecurityRule.IS_ANONYMOUS)
-@Controller("/backpack")
+@Controller("/engage")
 public class BackpackController {
     @Inject private HeroRepository heroRepository;
     @Inject private UserRepository userRepository;
@@ -25,7 +21,7 @@ public class BackpackController {
     @Inject private BackpackSlotRepository backpackSlotRepository;
 
     @Get
-    HttpResponse<List<BackpackSlotToDisplay>> getBackpack(HttpRequest<?> request) {
+    HttpResponse<List<BackpackSlot>> getBackpack(HttpRequest<?> request) {
         Optional<String> login = request.getParameters().getFirst("login");
         if (login.isPresent()) {
             List<User> optionalUser = userRepository.findByLogin(login.get());
@@ -34,22 +30,7 @@ public class BackpackController {
                 if (optionalHero.size() == 1) {
                     Hero hero = optionalHero.get(0);
                     List<BackpackSlot> backpack = backpackSlotRepository.findByHeroId((int) (long) hero.getId());
-                    List<BackpackSlotToDisplay> backpackSlotsToDisplay = backpack.stream().map(backpackSlot -> {
-                        Optional<Item> optionalItem = itemRepository.findById((long) backpackSlot.getItemId());
-                        String image = null;
-                        if (optionalItem.isPresent()) {
-                            image = optionalItem.get().getImage();
-                        }
-
-                        return new BackpackSlotToDisplay(
-                                backpackSlot.getId(),
-                                backpackSlot.getItemId(),
-                                backpackSlot.getPosition(),
-                                image
-                        );
-                    }).collect(Collectors.toList());
-
-                    return HttpResponse.ok(backpackSlotsToDisplay);
+                    return HttpResponse.ok(backpack);
                 }
             }
         }
@@ -100,14 +81,14 @@ public class BackpackController {
 
 
                         //adding the item effect
-                        if (posAfter == MainConf.backapckWeaponPosition) {
+                        if (posAfter == -1) {
                             if (itemBefore.isWeapon()) {
                                 hero.setStrength(hero.getStrength() + itemBefore.getDamage());
                             } else {
                                 return HttpResponse.notModified();
                             }
                         }
-                        if (posAfter == MainConf.backpackArmorPosition) {
+                        if (posAfter == -2) {
                             if (itemBefore.isArmor()) {
                                 hero.setDefense(hero.getDefense() + itemBefore.getProtection());
                             } else {
@@ -125,14 +106,14 @@ public class BackpackController {
                             Item itemAfter = optionalItemAfter.get();
 
                             //removing the item effect
-                            if (posBefore == MainConf.backapckWeaponPosition) {
+                            if (posBefore == -1) {
                                 if (itemAfter.isWeapon()) {
                                     hero.setStrength(hero.getStrength() - itemAfter.getDamage());
                                 } else {
                                     return HttpResponse.notModified();
                                 }
                             }
-                            if (posBefore == MainConf.backpackArmorPosition) {
+                            if (posBefore == -2 && !itemAfter.isArmor()) {
                                 if (itemAfter.isArmor()) {
                                     hero.setDefense(hero.getDefense() - itemAfter.getProtection());
                                 } else {

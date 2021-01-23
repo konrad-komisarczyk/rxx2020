@@ -5,7 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "DropProbability")
+@Table(name = "BackpackSlots")
 public class DropProbability {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
