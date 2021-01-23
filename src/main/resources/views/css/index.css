@@ -37,11 +37,14 @@ body {
 }
 
 .lighterButton {
-    background-image: url("/img/background_lighter.png");
+    background-image: url("/img/background.png");
+    border: 1px solid darkgreen;
 }
 
 .darkerButton {
     background-image: url("/img/background.png");
+    border-top: 1px solid darkgreen;
+    border-bottom: 1px solid darkgreen;
 }
 
 #heroPanel {
@@ -55,7 +58,8 @@ body {
     padding: 0;
     z-index: 750;
     visibility: hidden;
-    background-image: url("img/background.png");
+    background-image: url("img/background_lighter.png");
+    background-size: cover;
     font-size: x-large;
     font-family: Arimo, serif;
     text-align: center;
@@ -72,7 +76,8 @@ body {
     padding: 0;
     z-index: 750;
     visibility: hidden;
-    background: chartreuse;
+    background-image: url("img/background_lighter.png");
+    background-size: cover;
     font-size: x-large;
     font-family: Arimo, serif;
     text-align: center;
@@ -89,7 +94,8 @@ body {
     padding: 0;
     z-index: 750;
     visibility: hidden;
-    background: chartreuse;
+    background-image: url("img/background_lighter.png");
+    background-size: cover;
     font-size: x-large;
     font-family: Arimo, serif;
     text-align: center;
@@ -106,6 +112,40 @@ body {
     padding: 10px;
 }
 
+
+#banner {
+    width: 100%;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+}
+
+.standardButton {
+    background-image: url("/img/background.png");
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.plusButton {
+    background: none;
+    font-weight: bolder;
+    border: 1px solid #023902;
+    border-radius: 3px;
+    color: #023902;
+    margin: 0;
+    padding: 0px 6px;
+    font-size: x-large;
+}
+
+input {
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    background: #ddd;
+    font-size: x-large;
+    color: #023902;
+}
+
 #interaction {
     position: absolute;
     left: 8%;
@@ -117,7 +157,10 @@ body {
 }
 
 #interactionInfo {
-    background: chartreuse;
+    background-image: url("img/background_lighter.png");
+    background-size: cover;
+    border: 1px solid green;
+    border-radius: 5px;
     height: 75%;
     width: 100%;
     padding: 2px;
@@ -130,7 +173,8 @@ body {
     height: 70%;
     width: calc(100% - 4px);
     margin: 2px;
-    background: white;
+    background: #ddd;
+    border-radius: 5px;
     text-align: center;
 }
 
@@ -153,8 +197,9 @@ body {
 #interactionButtons button {
     height: 100%;
     margin: 0;
-    border: 0;
-    background: chartreuse;
+    background-image: url("img/background.png");
+    border: 1px solid darkgreen;
+    border-radius: 5px;
     font-size: xx-large;
     font-weight: bold;
     font-family: Arimo, serif;

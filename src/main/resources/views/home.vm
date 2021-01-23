@@ -1,5 +1,4 @@
 #if( $loggedIn )
-
 <html>
 <head>
     <style>
@@ -40,14 +39,11 @@
 <div id="interaction">
     <div id="interactionInfo">
         <div id="interactionImage">
-            <img src="img/1.png">
+            <img src="img/1.png" id="banner">
         </div>
         <div id="interactionTitle">
             Crossroads Spirit
         </div>
-        <!--<div id="interactionSubtitle">
-          Level 1
-        </div>-->
     </div>
     <div id="interactionButtons">
         <button type="button" id="interactionConfirm">ENGAGE</button>
@@ -71,22 +67,22 @@
     <div id="healthDiv" class="heroInfoDiv">
         Current health: <span id="health">10</span><br/>
         Max health: <span id="maxHealth">100</span>
-        <button id="increaseHealth">+</button>
+        <button id="increaseHealth" class="plusButton">+</button>
     </div>
     <div id="strengthDiv" class="heroInfoDiv">
         Strength: <span id="strength">9</span>
-        <button id="increaseStrength">+</button>
+        <button id="increaseStrength" class="plusButton">+</button>
     </div>
     <div id="defenseDiv" class="heroInfoDiv">
         Defense: <span id="defense">10</span>
-        <button id="increaseDefense">+</button>
+        <button id="increaseDefense" class="plusButton">+</button>
     </div>
     <div id="speedDiv" class="heroInfoDiv">
         Speed: <span id="speed">10</span>
-        <button id="increaseSpeed">+</button>
+        <button id="increaseSpeed" class="plusButton">+</button>
     </div>
     <div >
-        <span class="back"><button id="backFromHeroPanel">BACK</button></span>
+        <span class="back"><button id="backFromHeroPanel" class="standardButton">BACK</button></span>
     </div>
 </div>
 
@@ -161,10 +157,10 @@
         <div id="itemInfoDescription">
 
         </div>
-        <button type="button" onclick="hideItemInfo();">Hide</button>
+        <button type="button" onclick="hideItemInfo();" class="standardButton">Hide</button>
     </div>
     <div >
-        <span class="back"><button id="backFromEquipmentPanel">BACK</button></span>
+        <span class="back"><button id="backFromEquipmentPanel" class="standardButton">BACK</button></span>
     </div>
 
 </div>
@@ -179,17 +175,17 @@
     <div id="changingAvatar">
         <label for="avatarLink">Change your avatar</label><br/>
         <input id="avatarLink" placeholder="Link to your new avatar">
-        <button type="button" onclick="changeAvatar();">Change avatar</button>
+        <button type="button" onclick="changeAvatar();" class="standardButton">Change avatar</button>
     </div>
     <br/>
     <div id="logoutContainer">
         <form action="logout" method="POST">
-            <input id="logout" type="submit" value="Logout"/>
+            <input id="logout" type="submit" value="Logout" class="standardButton"/>
         </form>
     </div>
 
     <span class="back">
-      <button id="hideMenu" onclick="hideMenu()">BACK</button>
+      <button id="hideMenu" onclick="hideMenu()" class="standardButton">BACK</button>
     </span>
 </div>
 
@@ -222,9 +218,10 @@
 </head>
 <body>
 <div id="login">
-    <img src="/img/baner.png" width=90%>
-    <h1>You are not logged in</h1>
+    <img src="/img/baner.png" id="banner">
+    <h1>You need to login to play</h1>
     <p><a href="/login/auth">Login</a></p>
+    <p><a href="/register">Do you need to register?</a></p>
 </div>
 </body>
 </html>

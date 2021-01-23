@@ -8,19 +8,19 @@
 </head>
 <body>
 <div id="login">
-    <img src="/img/baner.png" id="banner" width="50%">
-    <form target="/registered" method="GET">
-        <label for="login">Login: </label>
-        <input name="login"><br/>
+    <img src="/img/baner.png" id="banner">
+    <form target="../registered" method="GET">
+        <input name="login" placeholder="Login">
+        <br/>
 
-        <label for="password">Password: </label>
-        <input name="password" type="password"><br/>
+        <input name="password" type="password" placeholder="Password">
+        <br/>
 
-        <button type="submit" class="button">REGISTER</button>
+        <button type="submit" class="submitButton">Sign up</button>
     </form>
     <br/>
     <br/>
-    <a href="/">Go to main page</a>
+    <a href="/login/auth">Go to login page</a>
 </div>
 </body>
 </html>

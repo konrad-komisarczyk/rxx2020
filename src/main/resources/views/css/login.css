@@ -1,14 +1,26 @@
-body{
-    background-image: url("img/background_lighter.png");
+
+body {
+    background-image: url("../img/background_much_lighter.png");
+}
+
+p {
+    font-size: x-large;
+}
+
+input {
+    font-size: x-large;
+    margin-bottom: 10px;
 }
 
 #login {
     position: absolute;
     left: 20%;
-    background-image: url("img/background.png");
+    background-image: url("../img/background_lighter.png");
+    background-size: cover;
+    border: 2px solid darkgreen;
+    border-radius: 5px;
     top: 2%;
     width: calc(60% - 40px);
-    border: 0;
     margin: 0;
     padding: 20px;
     font-size: x-large;
@@ -18,8 +30,23 @@ body{
 
 #banner {
     width: 100%;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
 }
 
-.button{
-    background-image: url("/img/background_lighter.png");
+.submitButton {
+    background-image: url("/img/background.png");
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+input {
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    background: #ddd;
+    font-size: x-large;
+    color: #023902;
 }
