@@ -12,6 +12,9 @@ public class MainConf { //TODO use JavaProperties instead??
     public static double engageDistance = 0.001;
     public static Integer maxEnemyTypes = 20;
     public static double minimalProgress = 0.0005;
+    public static Integer backpackSize = 20;
+    public static Integer backpackArmorPosition = -2;
+    public static Integer backapckWeaponPosition = -1;
 
     public static double eps() { // +/- 100m
         return 0;
