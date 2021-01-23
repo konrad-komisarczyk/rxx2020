@@ -223,13 +223,13 @@ body {
 }
 
 #armorSlot {
-    background-image: url("/img/emptyArmorSlot.PNG");
+    background-image: url("/img/emptyArmorSlot.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 #weaponSlot {
-    background-image: url("/img/emptyWeaponSlot.PNG");
+    background-image: url("/img/emptyWeaponSlot.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
