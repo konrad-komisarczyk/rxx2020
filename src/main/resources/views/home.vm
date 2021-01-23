@@ -206,9 +206,9 @@
 <script>
         #include("views/js/drag.js")
 </script>
-<style>
+<script>
         #include("views/js/index.js")
-</style>
+</script>
 </body></html>
 
 #else
