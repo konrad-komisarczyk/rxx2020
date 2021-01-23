@@ -99,8 +99,8 @@
                         <th colspan="2">EQUIPPED</th>
                     </tr>
                     <tr>
-                        <td id="weaponSlot" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                        <td id="armorSlot" class="cell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        <td id="weaponSlot" class="cell biggerCell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        <td id="armorSlot" class="cell biggerCell" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                     </tr>
                 </table>
             </div>

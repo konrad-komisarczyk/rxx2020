@@ -131,10 +131,3 @@ function reduceToWhich(text){
     console.log(text.length +"---"+text);
     return text[0];
 }
-
-function changeItemInTheList(query){
-    fetch('player/moveItem/' + query)
-        .then(response => response.json());
-
-
-}

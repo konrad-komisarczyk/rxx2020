@@ -1,6 +1,4 @@
 function retrieveMenu() {
-    console.log('retrieveMenu');
-
     fetch('player?login=' + login)
         //gets the JSON out of the response
         .then(response => response.json())
