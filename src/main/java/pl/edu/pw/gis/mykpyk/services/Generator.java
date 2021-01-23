@@ -6,6 +6,7 @@ import pl.edu.pw.gis.mykpyk.services.*;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Singleton
 public class Generator {
@@ -62,7 +63,9 @@ public class Generator {
                 EnemyType enemyType = enemyTypeOptional.get();
 
 
-                List<Enemy> enemiesNerby = enemyRepository.selectFromRectangle(e, w, s, n);
+                List<Enemy> enemiesNerby = enemyRepository.selectFromRectangle(e, w, s, n).stream()
+                        .filter(enemy -> (long) (int) enemy.getEnemyTypeId() == enemyType.getId())
+                        .collect(Collectors.toList());
                 int numberNearby = enemiesNerby.size();
 
                 if (numberNearby <= Math.floor(enemyType.getSpawnIntensity())) {

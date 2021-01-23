@@ -84,7 +84,16 @@ public class PlayerController {
 
     @Post("/setAvatar")
     HttpResponse<Integer> setAvatar(AvatarLink link) {
-        System.out.println("request to set avatar to " + link.getLink() + " for " + "someone");
+        System.out.println("dupaaaaaaaaaaaaaa");
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
+        System.out.println("request to set avatar to " + link.getLink());
 
         return HttpResponse.ok(1);
     }

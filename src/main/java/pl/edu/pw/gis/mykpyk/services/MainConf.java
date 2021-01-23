@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainConf { //TODO use JavaProperties instead??
-    public static double enemyShowRadius = 0.002;
+    public static double enemyShowRadius = 0.003;
     public static double enemySpawnRadius = 0.01;
     public static double regenerationDistance = 0.01;
     public static ArrayList<Integer> neededExpForLvl =

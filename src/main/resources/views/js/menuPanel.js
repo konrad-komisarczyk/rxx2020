@@ -18,14 +18,19 @@ function hideMenu() {
 function changeAvatar() {
     var link = document.getElementById("avatarLink").value;
 
-    fetch('/player/setAvatar', {
+    console.log("trying to set avatar");
+    console.log(login);
+
+    console.log(link);
+
+    fetch('/player/setAvatar/', {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-    link: link
-    })}).
+        credentials : 'include',
+        mode: 'cors',
+    body: JSON.stringify({link: link, login: login})}).
     then(() => {fetch("/player?login=" + login).then(response => response.json())
                             .then(data => {
                             var size = new OpenLayers.Size(80, 80);
@@ -34,5 +39,4 @@ function changeAvatar() {
                             actualizeMap();
                             });});
     document.getElementById("avatarLink").value = "";
-
 }

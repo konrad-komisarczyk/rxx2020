@@ -36,16 +36,21 @@ function backFromHeroPanel(){
     document.getElementById("heroPanel").style.visibility = "hidden";
 }
 function spendHealth(){
-    if(document.getElementById("learningPoints").innerHTML == "0") return;
+    if (parseInt(document.getElementById("learningPoints").innerHTML) <= 0) return;
+
     arg = "health";
     fetch('player/spendTalentPoint?login=' + login + "&which=" + arg)
               .then(response => response.json())
-              .then( refreshHealth);
+              .then(refreshHealth);
 }
 function refreshHealth(data){val = data.health;document.getElementById("health").innerHTML = val; val = data.maxHealth;document.getElementById("maxHealth").innerHTML = val;
                                document.getElementById("learningPoints").innerHTML = document.getElementById("learningPoints").innerHTML -1;}
 function spendDefense(){
-    if(document.getElementById("learningPoints").innerHTML == "0") return;
+    if (parseInt(document.getElementById("learningPoints").innerHTML) <= 0) {
+        document.getElementById("learningPoints").innerHTML = 0;
+        return;
+    }
+
     arg = "defense";
     fetch('player/spendTalentPoint?login=' + login + "&which=" + arg)
               .then(response => response.json())
@@ -54,7 +59,10 @@ function spendDefense(){
 function refreshDefense(data){val = data.defense;document.getElementById("defense").innerHTML = val;
                                 document.getElementById("learningPoints").innerHTML = document.getElementById("learningPoints").innerHTML -1;}
 function spendStrength(){
-    if(document.getElementById("learningPoints").innerHTML == "0") return;
+    if (parseInt(document.getElementById("learningPoints").innerHTML) <= 0) {
+        document.getElementById("learningPoints").innerHTML = 0;
+        return;
+    }
     arg = "strength";
     fetch('player/spendTalentPoint?login=' + login + "&which=" + arg)
               .then(response => response.json())
@@ -63,7 +71,10 @@ function spendStrength(){
 function refreshStrength(data){val = data.strength;document.getElementById("strength").innerHTML = val;
                                 document.getElementById("learningPoints").innerHTML = document.getElementById("learningPoints").innerHTML -1;}
 function spendSpeed(){
-    if(document.getElementById("learningPoints").innerHTML == "0") return;
+    if (parseInt(document.getElementById("learningPoints").innerHTML) <= 0) {
+        document.getElementById("learningPoints").innerHTML = 0;
+        return;
+    }
     arg = "speed";
     fetch('player/spendTalentPoint?login=' + login + "&which=" + arg)
               .then(response => response.json())

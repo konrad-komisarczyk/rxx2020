@@ -49,7 +49,7 @@ public class ReloadController {
 
                     if (progress >= MainConf.minimalProgress) {
                         //enemy generation refresh
-                        generator.generateEnemies(whereLat, whereLon);
+                        //generator.generateEnemies(whereLat, whereLon); //TODO UNCOMMENT
 
                         //hero position update
                         hero.setLastLat(whereLat);
