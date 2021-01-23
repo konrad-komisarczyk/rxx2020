@@ -173,7 +173,7 @@
 
     <br/>
     <div id="title">
-        <img src="/img/baner.png" id="banner">
+        <img src="/img/baner.png" id="banner" width="50%">
     </div>
     <br/>
     <div id="changingAvatar">
@@ -206,20 +206,19 @@
 <script>
         #include("views/js/drag.js")
 </script>
-<script>
+<style>
         #include("views/js/index.js")
-</script>
+</style>
 </body></html>
 
 #else
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-    #include("views/css/login.css")
-    </style>
-
     <title>DXX 2020</title>
+    <style>
+        #include("views/css/login.css")
+    </style>
 </head>
 <body>
 <div id="login">

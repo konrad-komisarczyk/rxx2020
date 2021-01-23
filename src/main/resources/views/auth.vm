@@ -2,20 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        #include("views/css/login.css")
+    </style>
+
     <meta charset="UTF-8">
+
     #if( $errors )
         <title>Login Failed</title>
     #else
         <title>Login</title>
     #end
-
-    <style>
-    #include("views/css/login.css")
-    </style>
 </head>
 <body>
 <div id="login">
-    <img src="/img/baner.png" id="banner">
+    <img src="/img/baner.png" id="banner" width="50%">
     <br/>
     <br/>
     <form name="loginForm" action="/login" method="POST">
