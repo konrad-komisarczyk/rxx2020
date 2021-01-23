@@ -37,11 +37,11 @@ body {
 }
 
 .lighterButton {
-    background-image: url("/img/background_lighter.png");
+    background: chartreuse;
 }
 
 .darkerButton {
-    background-image: url("/img/background.png");
+    background: #0fc10f;
 }
 
 #heroPanel {
