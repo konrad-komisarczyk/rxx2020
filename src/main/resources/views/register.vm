@@ -13,10 +13,10 @@
         <label for="login">Login: </label>
         <input name="login"><br/>
 
-        <label for="password">Pasword: </label>
+        <label for="password">Password: </label>
         <input name="password" type="password"><br/>
 
-        <button type="submit">REGISTER</button>
+        <button type="submit" class="button">REGISTER</button>
     </form>
     <br/>
     <br/>
