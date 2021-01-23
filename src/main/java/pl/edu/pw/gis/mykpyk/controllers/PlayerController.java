@@ -5,14 +5,10 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
+import pl.edu.pw.gis.mykpyk.displays.AvatarLink;
 import pl.edu.pw.gis.mykpyk.domain.*;
 
 import javax.inject.Inject;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
 import java.util.List;
 import java.util.Optional;
 

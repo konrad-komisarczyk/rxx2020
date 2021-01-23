@@ -5,7 +5,9 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
+import pl.edu.pw.gis.mykpyk.displays.EnemyToDisplay;
 import pl.edu.pw.gis.mykpyk.domain.*;
+import pl.edu.pw.gis.mykpyk.services.Generator;
 import pl.edu.pw.gis.mykpyk.services.MainConf;
 
 import javax.inject.Inject;
@@ -67,8 +69,6 @@ public class ReloadController {
                             whereLat - MainConf.enemyShowRadius,
                             whereLat + MainConf.enemyShowRadius
                     );
-
-                    System.out.println("YOU SAW " + seenEnemies.size() + " ENEMIES  AT " + whereLat + ", " + whereLon);
 
                     List<EnemyToDisplay> seenEnemiesToDisplay = seenEnemies.stream().
                             map(this::displayEnemy).

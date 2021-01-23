@@ -11,7 +11,7 @@
 <body>
 <div id="login">
     <img src="/img/baner.png" id="banner">
-    <form target="/registration/registered" method="get">
+    <form target="/registered" method="GET">
         <label for="login">Login: </label>
         <input name="login"><br/>
 
