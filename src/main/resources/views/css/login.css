@@ -1,3 +1,7 @@
+body{
+    background-image: url("img/background.png");
+}
+
 #login {
     position: absolute;
     left: 20%;
@@ -6,7 +10,6 @@
     border: 0;
     margin: 0;
     padding: 20px;
-    background: chartreuse;
     font-size: x-large;
     font-family: Arimo, serif;
     text-align: center;
