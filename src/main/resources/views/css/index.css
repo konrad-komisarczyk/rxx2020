@@ -39,12 +39,14 @@ body {
 .lighterButton {
     background-image: url("/img/background.png");
     border: 1px solid darkgreen;
+    color: #2d0101;
 }
 
 .darkerButton {
     background-image: url("/img/background.png");
     border-top: 1px solid darkgreen;
     border-bottom: 1px solid darkgreen;
+    color: #2d0101;
 }
 
 #heroPanel {
@@ -108,8 +110,9 @@ body {
 
 .heroInfoDiv {
     border: 1px solid darkgreen;
-    margin: 10px;
-    padding: 10px;
+    border-radius: 5px;
+    margin: 8px;
+    padding: 8px;
 }
 
 
@@ -125,6 +128,7 @@ body {
     border-radius: 5px;
     font-weight: bold;
     font-size: x-large;
+    color: #2d0101;
 }
 
 .plusButton {
@@ -134,7 +138,7 @@ body {
     border-radius: 3px;
     color: #023902;
     margin: 0;
-    padding: 0px 6px;
+    padding: 0px 8px;
     font-size: x-large;
 }
 
@@ -185,6 +189,7 @@ input {
 
 #interactionTitle {
     font-weight: bold;
+    color: #2d0101;
 }
 
 #interactionButtons {
@@ -203,64 +208,25 @@ input {
     font-size: xx-large;
     font-weight: bold;
     font-family: Arimo, serif;
+    color: #2d0101;
 }
 
 #interactionConfirm {
     width: calc(100% / 3);
 }
 
-#newMonstersPanel {
-    position: absolute;
-    background: #65a765;
-    right: 2%;
-    bottom: 10%;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    z-index: 750;
-    font-size: x-large;
-    font-family: Arimo, serif;
-}
 
 #movingModePanel {
-    position: absolute;
-    background: #65a765;
-    left: 2%;
-    top: 2%;
     border: 0;
     margin: 0;
     padding: 0;
-    z-index: 750;
     font-size: x-large;
     font-family: Arimo, serif;
     text-align: center;
 }
 
-#controlPanel {
-    position: absolute;
-    left: 1%;
-    bottom: 10%;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 750;
-    font-size: x-large;
-    font-family: Arimo, serif;
-    text-align: left;
-}
-
-#controlPanelUp {
-    position: absolute;
-    left: calc(1% + 55px);
-    bottom: calc(10% + 55px);
-    border: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 750;
-    font-size: x-large;
-    font-family: Arimo, serif;
-    text-align: left;
+#movingMode {
+    background-image: url("img/background_much_lighter.png");
 }
 
 #equipmentTop {
@@ -293,6 +259,8 @@ input {
     margin: 5px;
     padding: 5px;
     visibility: hidden;
+    background-image: url("/img/background.png");
+    border-radius: 5px;
 }
 
 #itemInfoName {

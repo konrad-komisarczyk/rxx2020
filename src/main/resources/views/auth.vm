@@ -28,10 +28,12 @@
         <button type="submit" class="submitButton">Sign in</button>
 
         #if( $errors )
-            <p><span style="color: #ff0000;">Login Failed</span></p>
+            <p><span style="color: red; font-weight: bolder;">Login Failed!</span></p>
         #end
 
-        <p><a href="/register">Do you need to register?</a></p>
+        <br/>
+        <br/>
+        <a href="/register">Do you need to register?</a>
     </form>
 </div>
 

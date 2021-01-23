@@ -1,6 +1,6 @@
-
 body {
     background-image: url("../img/background_much_lighter.png");
+    font-family: Arimo, serif;
 }
 
 p {
@@ -40,6 +40,7 @@ input {
     border-radius: 5px;
     font-weight: bold;
     font-size: x-large;
+    color: #2d0101;
 }
 
 
@@ -49,4 +50,20 @@ input {
     background: #ddd;
     font-size: x-large;
     color: #023902;
+}
+
+input:valid {
+    background: #baf8ad;
+}
+
+
+a {
+    background-image: url("/img/background.png");
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 5px;
+    text-decoration: none;
+    color: #2d0101;
 }

@@ -53,6 +53,10 @@
 <div id="heroPanel">
     <div id="avatar" class="heroInfoDiv">
         <img id="avatarImg" src="img/avatar.png">
+        <br/>
+        <br/>
+        <input id="avatarLink" placeholder="Link to your new avatar">
+        <button type="button" onclick="changeAvatar();" class="standardButton">Change avatar</button>
     </div>
     <div id="levelInfo" class="heroInfoDiv">
         Current level: <span id="level">1</span> <br/>
@@ -172,10 +176,16 @@
         <img src="/img/baner.png" id="banner" width="50%">
     </div>
     <br/>
-    <div id="changingAvatar">
-        <label for="avatarLink">Change your avatar</label><br/>
-        <input id="avatarLink" placeholder="Link to your new avatar">
-        <button type="button" onclick="changeAvatar();" class="standardButton">Change avatar</button>
+    <div id="cheats">
+        <div id="movingModePanel">
+            <div id="cheatInputBox">
+                <input type="text" id="cheatInput" placeholder="Enter cheat" onkeydown="doActionIfEnter(this)">
+            </div>
+            <div id="movingMode" class="heroInfoDiv" hidden>
+                <span id = "movingModeInfo">Do you want to enable tester mode?</span>
+                <input type="checkbox" id="movingModeCheckbox">
+            </div>
+        </div>
     </div>
     <br/>
     <div id="logoutContainer">
@@ -187,16 +197,6 @@
     <span class="back">
       <button id="hideMenu" onclick="hideMenu()" class="standardButton">BACK</button>
     </span>
-</div>
-
-<div id="movingModePanel">
-    <div id="cheatInputBox" style="position: absolute; left: 1%; top: 1%;">
-        <input type="text" id="cheatInput" placeholder="Enter cheat" onkeydown="doActionIfEnter(this)">
-    </div>
-    <div id="movingMode" class="heroInfoDiv" hidden style="background: #73be73">
-        <span id = "movingModeInfo">Do you want to enable tester mode?</span>
-        <input type="checkbox" id="movingModeCheckbox">
-    </div>
 </div>
 
 <script>
