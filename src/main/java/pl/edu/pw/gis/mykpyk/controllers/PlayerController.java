@@ -2,6 +2,7 @@ package pl.edu.pw.gis.mykpyk.controllers;
 
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
@@ -83,18 +84,25 @@ public class PlayerController {
     }
 
     @Post("/setAvatar")
-    HttpResponse<Integer> setAvatar(AvatarLink link) {
-        System.out.println("dupaaaaaaaaaaaaaa");
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
-        System.out.println("request to set avatar to " + link.getLink());
+    @Consumes(MediaType.APPLICATION_JSON)
+    HttpResponse<Integer> setAvatar(@Body AvatarLink avatarLink) {
+        System.out.println("request to set avatar to " + avatarLink.getLink());
+        String link = avatarLink.getLink();
+        String login = avatarLink.getLogin();
 
-        return HttpResponse.ok(1);
+        List<User> userList = userRepository.findByLogin(login);
+
+        if (userList.size() == 1) {
+            List<Hero> heroList = heroRepository.findByUserId(userList.get(0).getId());
+            if (heroList.size() == 1) {
+                Hero hero = heroList.get(0);
+                hero.setAvatarLink(link);
+                heroRepository.update(hero);
+
+                return HttpResponse.ok(1);
+            }
+        }
+        return HttpResponse.badRequest();
+
     }
 }

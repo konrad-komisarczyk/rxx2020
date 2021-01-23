@@ -77,7 +77,7 @@ public class EngageController {
                             hero.setExp(hero.getExp() + enemyType.getExp());
                             hero.setHealth(heroHealth);
                             if (hero.getLevel() < MainConf.neededExpForLvl.size()) {
-                                while (hero.getExp() >= MainConf.neededExpForLvl.get(hero.getLevel())) {
+                                while (hero.getExp() >= MainConf.neededExpForLvl.get(hero.getLevel() + 1)) {
                                     hero.setLevel(hero.getLevel() + 1);
                                     hero.setTalentPoints(hero.getTalentPoints() + 10);
                                 }

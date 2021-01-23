@@ -65,7 +65,7 @@ if (window.navigator.geolocation) {
 
 }
 
-gettingPositionInterval = setInterval(getCurrentPosition, 2000); // take location every 2 seconds
+gettingPositionInterval = setInterval(getCurrentPosition, 1000); // take location every 1 seconds
 
 function doActionIfEnter(e){
     if(document.getElementById("cheatInput").value === "iamtester"){

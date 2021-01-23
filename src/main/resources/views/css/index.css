@@ -108,6 +108,12 @@ body {
     text-align: center;
 }
 
+.biggerCell {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+}
+
 .heroInfoDiv {
     border: 1px solid darkgreen;
     border-radius: 5px;

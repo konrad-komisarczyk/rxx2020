@@ -2,6 +2,7 @@ package pl.edu.pw.gis.mykpyk.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class MainConf { //TODO use JavaProperties instead??
     public static double enemyShowRadius = 0.003;
@@ -16,8 +17,10 @@ public class MainConf { //TODO use JavaProperties instead??
     public static Integer backpackArmorPosition = -2;
     public static Integer backpackWeaponPosition = -1;
 
-    public static double eps() { // +/- 100m
-        return 0;
+    public static final Random random = new Random();
+
+    public static double eps() {
+        return random.nextDouble() * 0.0004 - 0.0002;
     }
 
 }
