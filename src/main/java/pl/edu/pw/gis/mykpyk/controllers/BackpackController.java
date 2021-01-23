@@ -131,7 +131,8 @@ public class BackpackController {
                             return HttpResponse.badRequest();
                         }
                         Item itemBefore = optionalItemBefore.get();
-
+                        if(posAfter == -1 && !itemBefore.getType().equals( "weapon" )) return HttpResponse.badRequest();
+                        if(posAfter == -2 && !itemBefore.getType().equals( "armor" )) return HttpResponse.badRequest();
 
 
 
@@ -211,7 +212,6 @@ public class BackpackController {
                         hero.setHealth(Math.min(hero.getHealth() + item.getHealing(), hero.getMaxHealth()));
 
                         backpackSlotRepository.delete(slot);
-                        itemRepository.delete( item );
                         heroRepository.update(hero);
 
                         return HttpResponse.ok();
@@ -246,7 +246,6 @@ public class BackpackController {
                         Item item = optionalItem.get();
 
                         backpackSlotRepository.delete(slot);
-                        itemRepository.delete( item );
                         heroRepository.update(hero);
 
                         return HttpResponse.ok();

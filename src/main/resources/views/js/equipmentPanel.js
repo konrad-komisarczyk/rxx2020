@@ -15,7 +15,7 @@ function retrieveEquipment(){
                 .then(logEquipment);
 
     document.getElementById("equipmentPanel").style.visibility = "visible";
-    document.getElementById("equipment").style.background = "chartreuse";
+    //document.getElementById("equipment").style.background = "chartreuse";
 }
 
 function logEquipment(data){

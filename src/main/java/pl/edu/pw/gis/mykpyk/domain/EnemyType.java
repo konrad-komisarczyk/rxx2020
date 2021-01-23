@@ -36,6 +36,14 @@ public class EnemyType {
     private Integer strength;
 
     @NotNull
+    @Column(name = "defense", nullable = false)
+    private Integer defense;
+
+    @NotNull
+    @Column(name = "speed", nullable = false)
+    private Integer speed;
+
+    @NotNull
     @Column(name = "spawnKey", nullable = true)
     private String spawnKey;
 

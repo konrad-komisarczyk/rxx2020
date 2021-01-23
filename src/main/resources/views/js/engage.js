@@ -3,7 +3,7 @@ var engageId; // ustawia się po kliknięciu na marker!!! jest to zwykle 'id' po
 function engage(e) {
     fetch("engage?login=" + login + "&enemyId="  + engageId + "&lon=" + lng + "&lat=" + lat)
      .then(response => response.json())
-     .then(data => {if(data === "DROP") document.getElementById("equipment").style.background = "gold";})// info o dropie
+     .then(data => {if(data === "DROP") {console.log("dropped");}/*document.getElementById("equipment").style.background = "gold";*/})// info o dropie
      .then(() => {
         document.querySelector('#interaction').style.visibility = "hidden";
 
