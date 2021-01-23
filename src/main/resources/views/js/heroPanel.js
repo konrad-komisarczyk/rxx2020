@@ -1,6 +1,3 @@
-
-var login = "user5";
-
 function retrieveHeroInfo() {
     fetch('player?login=' + login)
             //gets the JSON out of the response

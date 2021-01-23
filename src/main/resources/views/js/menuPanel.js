@@ -1,6 +1,3 @@
-
-var login = "user5";
-
 function retrieveMenu() {
     console.log('retrieveMenu');
 
