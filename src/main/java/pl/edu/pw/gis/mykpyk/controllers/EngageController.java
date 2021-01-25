@@ -7,10 +7,13 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
+import org.xml.sax.SAXException;
 import pl.edu.pw.gis.mykpyk.domain.*;
 import pl.edu.pw.gis.mykpyk.services.MainConf;
 
 import javax.inject.Inject;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -87,6 +90,7 @@ public class EngageController {
                             Random random = new Random();
 
                             if (Math.random() <= 0.4) {
+                                changeEquipmentBackgroundColor();
                                 List<DropProbability> dropProbabilities =
                                         dropProbabilityRepository.findByEnemyTypeId((int) (long) enemyType.getId());
 
@@ -128,5 +132,10 @@ public class EngageController {
         }
 
         return HttpResponse.badRequest();
+    }
+
+    private void changeEquipmentBackgroundColor(){
+        // TODO
+        return;
     }
 }

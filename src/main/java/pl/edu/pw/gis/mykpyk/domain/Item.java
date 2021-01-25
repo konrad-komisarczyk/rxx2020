@@ -115,7 +115,6 @@ public class Item {
         this.image = image;
     }
 
-
     public boolean isWeapon() {
         return type.equals("weapon");
     }
