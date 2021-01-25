@@ -1,8 +1,7 @@
 var items = [];
 function retrieveItems() {
     fetch('items')
-            .then(response => response.json())
-            .then(logItems);
+            .then(response => response.json()).then(logItems);
 }
 function logItems(data) {
     items = [];

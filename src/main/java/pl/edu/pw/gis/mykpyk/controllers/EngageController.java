@@ -1,19 +1,16 @@
 package pl.edu.pw.gis.mykpyk.controllers;
 
-
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
-import org.xml.sax.SAXException;
 import pl.edu.pw.gis.mykpyk.domain.*;
 import pl.edu.pw.gis.mykpyk.services.MainConf;
 
 import javax.inject.Inject;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
+import javax.script.ScriptException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -31,7 +28,7 @@ public class EngageController {
     @Inject private BackpackSlotRepository backpackSlotRepository;
 
     @Get()
-    public HttpResponse<String> engage(HttpRequest<?> request) {
+    public HttpResponse<String> engage(HttpRequest<?> request) throws ScriptException {
         Optional<String> userLoginParameter = request.getParameters().getFirst("login");
         Optional<String> enemyIdParameter = request.getParameters().getFirst("enemyId");
         Optional<String> lonParameter = request.getParameters().getFirst("lon");
@@ -125,12 +122,12 @@ public class EngageController {
 
                         return HttpResponse.ok(result);
                     } else {
+                        System.out.println("Come a little closer! The monster is too far");
                         return HttpResponse.notModified();
                     }
                 }
             }
         }
-
         return HttpResponse.badRequest();
     }
 

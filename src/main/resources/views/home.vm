@@ -35,9 +35,7 @@
 <div id="mapdiv"></div>
 
 <div id="buttons">
-    <button type="button" id="equipment" class="menuButton lighterButton">EQUIPMENT</button>
-    <button type="button" id="menu" class="menuButton darkerButton">MENU</button>
-    <button type="button" id="hero" class="menuButton lighterButton">YOUR HERO</button>
+    <button type="button" id="equipment" class="menuButton lighterButton">EQUIPMENT</button><button type="button" id="menu" class="menuButton darkerButton">MENU</button><button type="button" id="hero" class="menuButton lighterButton">YOUR HERO</button>
 </div>
 
 <div id="interaction">
