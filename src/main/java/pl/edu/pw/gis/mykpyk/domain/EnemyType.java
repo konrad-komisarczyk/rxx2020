@@ -148,4 +148,12 @@ public class EnemyType {
     public void setSpawnIntensity(Double spawnIntensity) {
         this.spawnIntensity = spawnIntensity;
     }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public Integer getDefense(){
+        return defense;
+    }
 }

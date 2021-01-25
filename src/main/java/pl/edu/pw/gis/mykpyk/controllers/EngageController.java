@@ -6,6 +6,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
+import pl.edu.pw.gis.mykpyk.displays.CombatReport;
 import pl.edu.pw.gis.mykpyk.domain.*;
 import pl.edu.pw.gis.mykpyk.services.MainConf;
 
@@ -52,28 +53,44 @@ public class EngageController {
                     double howFarToEnemy = Math.sqrt(Math.pow(lon - enemy.getLng(), 2) + Math.pow(lat - enemy.getLat(), 2));
 
                     if (howFarToEnemy <= MainConf.engageDistance) {
-
+                        CombatReport report = new CombatReport(enemyType, hero);
                         Integer heroHealth = hero.getHealth();
                         Integer enemyHealth = enemyType.getHealth();
                         boolean heroAttacks = true;
 
                         while (heroHealth >= 0 && enemyHealth > 0) {
+                            int damageDealt;
                             if (heroAttacks) {
-                                enemyHealth -= hero.getStrength();
+                                if(Math.random() * 100 > enemyType.getSpeed()) {
+                                    damageDealt = (int)Math.round(nextGaussian(hero.getStrength() - enemyType.getDefense(), hero.getLevel()));
+                                    damageDealt = Math.max(damageDealt, 1);
+                                    enemyHealth -= hero.getStrength();
+                                    report.addLine("You attacked, dealing " + damageDealt + " damage points. " + enemyType.getName() + "'s remaining health points: " + enemyHealth);
+                                }
+                                else
+                                    report.addLine("You missed!");
                                 heroAttacks = false;
                             } else {
-                                heroHealth -= enemyType.getStrength() - hero.getDefense();
+                                if(Math.random() * 100 > hero.getSpeed()) {
+                                    damageDealt = (int)Math.round(nextGaussian(enemyType.getStrength() - hero.getDefense(), hero.getLevel()));
+                                    damageDealt = Math.max(damageDealt, 1);
+                                    heroHealth -= damageDealt;
+                                    report.addLine(enemyType.getName() + " attacted, dealing " + damageDealt + " damage points. Your remaining health: " + heroHealth);
+                                }
+                                else
+                                    report.addLine(enemyType.getName() + " missed!");
                                 heroAttacks = true;
                             }
                         }
 
                         String result = "UNKNOWN";
                         if (heroHealth <= 0) { //lost and died
-                            //die
+                            report.finish(false);
                             hero.setHealth(0);
                             hero.setExp(MainConf.neededExpForLvl.get(hero.getLevel()));
                             result = "LOST";
                         } else { //won
+                            report.finish(true);
                             hero.setExp(hero.getExp() + enemyType.getExp());
                             hero.setHealth(heroHealth);
                             if (hero.getLevel() < MainConf.neededExpForLvl.size()) {
@@ -122,7 +139,7 @@ public class EngageController {
 
                         return HttpResponse.ok(result);
                     } else {
-                        System.out.println("Come a little closer! The monster is too far");
+                        System.out.println("Come a little closer! The monster is too far"); // todo
                         return HttpResponse.notModified();
                     }
                 }
@@ -134,5 +151,9 @@ public class EngageController {
     private void changeEquipmentBackgroundColor(){
         // TODO
         return;
+    }
+
+    public static double nextGaussian(double mean, double deviation){
+        return new Random().nextGaussian() * deviation + mean;
     }
 }
