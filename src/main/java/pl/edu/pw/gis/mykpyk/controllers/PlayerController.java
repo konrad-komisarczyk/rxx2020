@@ -83,6 +83,28 @@ public class PlayerController {
         return HttpResponse.badRequest();
     }
 
+    @Get("/setAmbrosiaHealth")
+    HttpResponse<Hero> setAmbrosiaHealth(HttpRequest<?> request) {
+        Optional<String> loginOptional = request.getParameters().getFirst("login");
+
+        if (loginOptional.isPresent()) {
+            List<User> optionalUser = userRepository.findByLogin(loginOptional.get());
+            if (optionalUser.size() == 1) {
+                User user = optionalUser.get(0);
+                List<Hero> optionalHero = heroRepository.findByUserId(user.getId());
+                if (optionalHero.size() == 1) {
+                    Hero hero = optionalHero.get(0);
+                    hero.setMaxHealth(10000);
+                    hero.setHealth(10000);
+                    heroRepository.update(hero);
+
+                    return HttpResponse.ok(hero);
+                }
+            }
+        }
+        return HttpResponse.badRequest();
+    }
+
     @Post("/setAvatar")
     @Consumes(MediaType.APPLICATION_JSON)
     HttpResponse<Integer> setAvatar(@Body AvatarLink avatarLink) {

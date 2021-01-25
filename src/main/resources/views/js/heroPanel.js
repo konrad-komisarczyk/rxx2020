@@ -43,8 +43,14 @@ function spendHealth(){
               .then(response => response.json())
               .then(refreshHealth);
 }
+function ambrosiaCheat(){
+    fetch('player/setAmbrosiaHealth?login=' + login)
+        .then(response => response.json())
+        .then(refreshHealth);
+}
 function refreshHealth(data){val = data.health;document.getElementById("health").innerHTML = val; val = data.maxHealth;document.getElementById("maxHealth").innerHTML = val;
-                               document.getElementById("learningPoints").innerHTML = document.getElementById("learningPoints").innerHTML -1;}
+                               document.getElementById("learningPoints").innerHTML = parseInt(document.getElementById("learningPoints").innerHTML) - 1;
+}
 function spendDefense(){
     if (parseInt(document.getElementById("learningPoints").innerHTML) <= 0) {
         document.getElementById("learningPoints").innerHTML = 0;
