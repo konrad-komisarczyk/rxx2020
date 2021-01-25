@@ -1,7 +1,5 @@
 package pl.edu.pw.gis.mykpyk.domain;
 
-import io.reactivex.annotations.NonNull;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 

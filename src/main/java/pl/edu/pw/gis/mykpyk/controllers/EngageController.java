@@ -68,7 +68,7 @@ public class EngageController {
                         }
 
                         String result = "UNKNOWN";
-                        if (heroHealth < 0) { //lost and died
+                        if (heroHealth <= 0) { //lost and died
                             //die
                             hero.setHealth(0);
                             hero.setExp(MainConf.neededExpForLvl.get(hero.getLevel()));
@@ -86,36 +86,34 @@ public class EngageController {
 
                             Random random = new Random();
 
-                            List<DropProbability> dropProbabilities =
-                                    dropProbabilityRepository.findByEnemyTypeId((int) (long) enemyType.getId());
+                            if (Math.random() <= 0.4) {
+                                List<DropProbability> dropProbabilities =
+                                        dropProbabilityRepository.findByEnemyTypeId((int) (long) enemyType.getId());
 
-                            for (DropProbability dropProbability : dropProbabilities) {
-                                //over all drop probabilities for this enemy type
-                                if (random.nextDouble() < dropProbability.getProbability()) {
-                                    List<Integer> usedSlots =
-                                            backpackSlotRepository.findByHeroId((int) (long) hero.getId()).stream()
-                                                    .map(BackpackSlot::getPosition)
-                                                    .collect(Collectors.toList());
-                                    for (Integer i = 0; i < MainConf.backpackSize; i++) {
-                                        // checking all backpack slots if is free
-                                        if (!usedSlots.contains(i)) { //found free backpack slot
+                                for (DropProbability dropProbability : dropProbabilities) {
+                                    //over all drop probabilities for this enemy type
+                                    if (random.nextDouble() < dropProbability.getProbability()) {
+                                        List<Integer> usedSlots =
+                                                backpackSlotRepository.findByHeroId((int) (long) hero.getId()).stream()
+                                                        .map(BackpackSlot::getPosition)
+                                                        .collect(Collectors.toList());
+                                        for (Integer i = 0; i < MainConf.backpackSize; i++) {
+                                            // checking all backpack slots if is free
+                                            if (!usedSlots.contains(i)) { //found free backpack slot
+                                                BackpackSlot backpackSlotNew = new BackpackSlot(
+                                                        (int) (long) hero.getId(),
+                                                        dropProbability.getItemId(),
+                                                        i
+                                                );
 
-                                            BackpackSlot backpackSlotNew = new BackpackSlot(
-                                                    (int) (long) hero.getId(),
-                                                    dropProbability.getItemId(),
-                                                    i
-                                            );
-
-                                            backpackSlotRepository.save(backpackSlotNew);
-                                            break;
+                                                backpackSlotRepository.save(backpackSlotNew);
+                                                break;
+                                            }
                                         }
+                                        //here going from break
                                     }
-                                    //here going from break
-
                                 }
                             }
-
-                            
                             enemyRepository.delete(enemy);
                         }
 

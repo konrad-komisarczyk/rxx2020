@@ -68,11 +68,15 @@ if (window.navigator.geolocation) {
 gettingPositionInterval = setInterval(getCurrentPosition, 1000); // take location every 1 seconds
 
 function doActionIfEnter(e) {
-    if (document.getElementById("cheatInput").value === "iamtester") {
+    let cheatValue = document.getElementById("cheatInput").value;
+    if (cheatValue === "iamtester") {
         document.getElementById("cheatInputBox").hidden = true;
         document.getElementById("movingMode").hidden = false;
-    } else if (document.getElementById("cheatInput").value === "ambrosia")
+        alert("Cheat " + cheatValue + " activated!")
+    } else if (cheatValue === "ambrosia") {
         ambrosiaCheat();
+        alert("Cheat " + cheatValue + " activated!")
+    }
 }
 
 function actualizeMap() {

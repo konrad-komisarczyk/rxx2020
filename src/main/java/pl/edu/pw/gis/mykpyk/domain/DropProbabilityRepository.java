@@ -7,6 +7,5 @@ import java.util.List;
 
 @Repository
 public interface DropProbabilityRepository extends CrudRepository<DropProbability, Long> {
-
     List<DropProbability> findByEnemyTypeId(Integer enemyTypeId);
 }
