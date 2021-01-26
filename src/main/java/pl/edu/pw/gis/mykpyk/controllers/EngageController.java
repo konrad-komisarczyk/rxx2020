@@ -29,7 +29,7 @@ public class EngageController {
     @Inject private BackpackSlotRepository backpackSlotRepository;
 
     @Get()
-    public HttpResponse<String> engage(HttpRequest<?> request) throws ScriptException {
+    public HttpResponse<CombatReport> engage(HttpRequest<?> request) throws ScriptException {
         Optional<String> userLoginParameter = request.getParameters().getFirst("login");
         Optional<String> enemyIdParameter = request.getParameters().getFirst("enemyId");
         Optional<String> lonParameter = request.getParameters().getFirst("lon");
@@ -137,7 +137,7 @@ public class EngageController {
 
                         heroRepository.update(hero);
 
-                        return HttpResponse.ok(result);
+                        return HttpResponse.ok(report);
                     } else {
                         System.out.println("Come a little closer! The monster is too far"); // todo
                         return HttpResponse.notModified();
