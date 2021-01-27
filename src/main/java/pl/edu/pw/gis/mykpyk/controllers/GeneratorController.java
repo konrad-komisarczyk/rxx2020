@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import static java.lang.Math.min;
 
-@Secured(SecurityRule.IS_ANONYMOUS)
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller("/generate")
 public class GeneratorController {
 

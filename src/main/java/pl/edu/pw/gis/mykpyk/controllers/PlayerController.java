@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
-@Secured(SecurityRule.IS_ANONYMOUS)
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller("/player")
 public class PlayerController {
     @Inject private HeroRepository heroRepository;
