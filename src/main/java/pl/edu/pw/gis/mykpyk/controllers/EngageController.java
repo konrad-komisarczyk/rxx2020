@@ -101,7 +101,6 @@ public class EngageController {
                             Random random = new Random();
 
                             if (Math.random() <= 0.4) {
-                                changeEquipmentBackgroundColor();
                                 List<DropProbability> dropProbabilities =
                                         dropProbabilityRepository.findByEnemyTypeId((int) (long) enemyType.getId());
 
@@ -122,6 +121,7 @@ public class EngageController {
                                                 );
 
                                                 backpackSlotRepository.save(backpackSlotNew);
+                                                report.addDrop();
                                                 break;
                                             }
                                         }
@@ -143,11 +143,6 @@ public class EngageController {
             }
         }
         return HttpResponse.badRequest();
-    }
-
-    private void changeEquipmentBackgroundColor(){
-        // TODO
-        return;
     }
 
     public static double nextGaussian(double mean, double deviation){

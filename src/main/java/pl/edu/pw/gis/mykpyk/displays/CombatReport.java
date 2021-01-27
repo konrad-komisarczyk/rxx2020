@@ -9,6 +9,7 @@ public class CombatReport {
     private String message;
     private EnemyType enemyType;
     private Hero hero;
+    private Boolean drop;
 
     public CombatReport(){
         message = "Come a little closer! The monster is too far";
@@ -17,7 +18,8 @@ public class CombatReport {
     public CombatReport(EnemyType enemyType, Hero hero) {
         this.enemyType = enemyType;
         this.hero = hero;
-        message = "Battle started!";
+        this.message = "Battle started!";
+        this.drop = false;
     }
 
     public void addLine(String line){
@@ -31,11 +33,23 @@ public class CombatReport {
             message += "\nSuch a shame! You lost it. Your EXP goes down to: " + MainConf.neededExpForLvl.get(hero.getLevel());
     }
 
+    public void addDrop() {
+        this.drop = true;
+    }
+
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Boolean getDrop() {
+        return drop;
+    }
+
+    public void setDrop(Boolean drop) {
+        this.drop = drop;
     }
 }
