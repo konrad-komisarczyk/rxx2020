@@ -12,4 +12,9 @@ public interface EnemyRepository extends CrudRepository<Enemy, Long> {
     @Query(nativeQuery = true,
             value = "select * from enemies e where e.lat < :north and e.lat > :south and e.lng < :east and e.lng > :west")
     List<Enemy> selectFromRectangle(Double east, Double west, Double south, Double north);
+
+
+    @Query(nativeQuery = true,
+            value = "select * from enemies e where e.lat < :north and e.lat > :south and e.lng < :east and e.lng > :west and e.enemy_type_id = :type")
+    List<Enemy> selectEnemiesNearby(Double east, Double west, Double south, Double north, Integer type);
 }

@@ -47,18 +47,12 @@ public class ReloadController {
                     Hero hero = optionalHero.get(0);
                     double progress = Math.sqrt(Math.pow(whereLon - hero.getLastLon(), 2) + Math.pow(whereLat - hero.getLastLat(), 2));
 
-                    if (progress >= MainConf.minimalProgress) {
-                        //enemy generation refresh
-                        //generator.generateEnemies(whereLat, whereLon); //TODO UNCOMMENT
-
+                    if (progress >= MainConf.regenerationDistance) {
                         //hero position update
                         hero.setLastLat(whereLat);
                         hero.setLastLon(whereLon);
 
-                        //health regeneration
-                        if (progress >= MainConf.regenerationDistance) {
-                            hero.setHealth(min(hero.getHealth() + 1, hero.getMaxHealth()));
-                        }
+                        hero.setHealth(min(hero.getHealth() + 1, hero.getMaxHealth()));
 
                         heroRepository.update(hero);
                     }
