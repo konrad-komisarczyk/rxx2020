@@ -10,6 +10,7 @@ import pl.edu.pw.gis.mykpyk.domain.Hero;
 import pl.edu.pw.gis.mykpyk.domain.HeroRepository;
 import pl.edu.pw.gis.mykpyk.domain.UserRepository;
 import pl.edu.pw.gis.mykpyk.domain.User;
+import pl.edu.pw.gis.mykpyk.services.Hashing;
 
 import javax.inject.Inject;
 import java.util.HashMap;
@@ -41,7 +42,7 @@ public class RegistrationController {
             if (foundUser.size() > 0) {
                 return map;
             } else {
-                userRepository.save(login.get(), password.get());
+                userRepository.save(login.get(), Hashing.sha256(password.get()));
 
                 User user = userRepository.findByLogin(login.get()).get(0);
 

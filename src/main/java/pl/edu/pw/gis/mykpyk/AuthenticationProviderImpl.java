@@ -8,6 +8,7 @@ import io.reactivex.Flowable;
 import org.reactivestreams.Publisher;
 import pl.edu.pw.gis.mykpyk.domain.User;
 import pl.edu.pw.gis.mykpyk.domain.UserRepository;
+import pl.edu.pw.gis.mykpyk.services.Hashing;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -26,7 +27,9 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
             String login = authenticationRequest.getIdentity().toString();
             List<User> userFound = userRepository.findByLogin(login);
 
-            if (userFound.size() == 1 && authenticationRequest.getSecret().equals(userFound.get(0).getPassword())) {
+            String passwordHash = Hashing.sha256(authenticationRequest.getSecret().toString());
+
+            if (userFound.size() == 1 && passwordHash.equals(userFound.get(0).getPassword())) {
                 UserDetails userDetails = new UserDetails((String) authenticationRequest.getIdentity(), new ArrayList<>());
                 emitter.onNext(userDetails);
                 emitter.onComplete();
