@@ -29,7 +29,7 @@ public class EngageController {
     @Inject private BackpackSlotRepository backpackSlotRepository;
 
     @Get()
-    public HttpResponse<CombatReport> engage(HttpRequest<?> request) throws ScriptException {
+    public HttpResponse<CombatReport> engage(HttpRequest<?> request){
         Optional<String> userLoginParameter = request.getParameters().getFirst("login");
         Optional<String> enemyIdParameter = request.getParameters().getFirst("enemyId");
         Optional<String> lonParameter = request.getParameters().getFirst("lon");
@@ -83,12 +83,10 @@ public class EngageController {
                             }
                         }
 
-                        String result = "UNKNOWN";
                         if (heroHealth <= 0) { //lost and died
                             report.finish(false);
                             hero.setHealth(0);
                             hero.setExp(MainConf.neededExpForLvl.get(hero.getLevel()));
-                            result = "LOST";
                         } else { //won
                             report.finish(true);
                             hero.setExp(hero.getExp() + enemyType.getExp());
@@ -99,7 +97,6 @@ public class EngageController {
                                     hero.setTalentPoints(hero.getTalentPoints() + 10);
                                 }
                             }
-                            result = "WON";
 
                             Random random = new Random();
 
@@ -139,8 +136,8 @@ public class EngageController {
 
                         return HttpResponse.ok(report);
                     } else {
-                        System.out.println("Come a little closer! The monster is too far"); // todo
-                        return HttpResponse.notModified();
+                        CombatReport report = new CombatReport();
+                        return HttpResponse.ok(report);
                     }
                 }
             }

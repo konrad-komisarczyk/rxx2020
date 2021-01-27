@@ -10,6 +10,10 @@ public class CombatReport {
     private EnemyType enemyType;
     private Hero hero;
 
+    public CombatReport(){
+        message = "Come a little closer! The monster is too far";
+    }
+
     public CombatReport(EnemyType enemyType, Hero hero) {
         this.enemyType = enemyType;
         this.hero = hero;
