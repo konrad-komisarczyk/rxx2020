@@ -65,6 +65,12 @@ public class ReloadController {
                     );
 
                     List<EnemyToDisplay> seenEnemiesToDisplay = seenEnemies.stream().
+                            filter(enemy -> {
+                                Optional<EnemyType> type =
+                                        enemyTypeRepository.findById((long) enemy.getEnemyTypeId());
+                                return type.isPresent() &&
+                                        type.get().getMinUserLvl() <= hero.getLevel();
+                            }).
                             map(this::displayEnemy).
                             collect(Collectors.toList());
 
