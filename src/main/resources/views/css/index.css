@@ -156,6 +156,36 @@ input {
     color: #023902;
 }
 
+#combatReportPanel {
+    position: absolute;
+    left: 8%;
+    top: 8%;
+    width: 84%;
+    z-index: 751;
+    visibility: hidden;
+    background-image: url("img/background_lighter.png");
+    background-size: cover;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#reportText {
+    background: #DDD;
+    border: 1px solid green;
+    border-radius: 5px;
+    font-size: x-large;
+    font-family: Arimo, serif;
+    margin-bottom: 8px;
+    color: #2d0101;
+}
+
+#itemDroppedInfo {
+    font-size: x-large;
+    font-family: Arimo, serif;
+    margin-bottom: 8px;
+}
+
 #interaction {
     position: absolute;
     left: 8%;

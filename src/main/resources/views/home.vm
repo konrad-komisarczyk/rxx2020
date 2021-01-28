@@ -169,6 +169,20 @@
 
 </div>
 
+<div id="combatReportPanel">
+    <div id="reportText">
+
+    </div>
+    <div id="itemDroppedInfo">
+
+    </div>
+<center>
+    <span class="back">
+      <button id="hideCombatReport" onclick="hideCombatReport()" class="standardButton">BACK</button>
+    </span>
+</center>
+</div>
+
 <div id="menuPanel">
 
     <br/>
