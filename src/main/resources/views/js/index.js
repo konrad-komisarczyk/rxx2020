@@ -31,6 +31,7 @@ function getCurrentPosition() {
 
 if (window.navigator.geolocation) {
     getCurrentPosition();
+    generateEnemies();
 
     map = new OpenLayers.Map({
         div: "mapdiv",
@@ -67,15 +68,22 @@ if (window.navigator.geolocation) {
 
 gettingPositionInterval = setInterval(getCurrentPosition, 1000); // take location every 1 seconds
 
+generatingEnemies = setInterval(generateEnemies, 60 * 1000); //send enemy generation request every minute
+
+function generateEnemies() {
+    console.log("enemy generation request sent");
+    fetch('generate?login=' + login + "&lon=" + lng + "&lat=" + lat)
+        .then(res => {console.log("enemies generated");})
+        .catch(err => {console.log("en error generating enemies occured");});
+}
+
 function doActionIfEnter(e) {
     let cheatValue = document.getElementById("cheatInput").value;
     if (cheatValue === "iamtester") {
         document.getElementById("cheatInputBox").hidden = true;
         document.getElementById("movingMode").hidden = false;
-        alert("Cheat " + cheatValue + " activated!")
     } else if (cheatValue === "ambrosia") {
         ambrosiaCheat();
-        alert("Cheat " + cheatValue + " activated!")
     }
 }
 

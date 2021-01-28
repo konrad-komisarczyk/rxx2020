@@ -67,6 +67,11 @@ body {
     text-align: center;
 }
 
+#avatarImg {
+    max-width: 500px;
+    max-height: 100px;
+}
+
 #menuPanel {
     position: absolute;
     left: 0;

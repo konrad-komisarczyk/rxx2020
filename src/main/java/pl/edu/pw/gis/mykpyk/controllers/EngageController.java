@@ -100,7 +100,7 @@ public class EngageController {
 
                             Random random = new Random();
 
-                            if (Math.random() <= 0.4) {
+                            if (Math.random() <= 0.8) {
                                 List<DropProbability> dropProbabilities =
                                         dropProbabilityRepository.findByEnemyTypeId((int) (long) enemyType.getId());
 
@@ -111,7 +111,7 @@ public class EngageController {
                                                 backpackSlotRepository.findByHeroId((int) (long) hero.getId()).stream()
                                                         .map(BackpackSlot::getPosition)
                                                         .collect(Collectors.toList());
-                                        for (Integer i = 0; i < MainConf.backpackSize; i++) {
+                                        for (Integer i = 1; i < MainConf.backpackSize; i++) {
                                             // checking all backpack slots if is free
                                             if (!usedSlots.contains(i)) { //found free backpack slot
                                                 BackpackSlot backpackSlotNew = new BackpackSlot(
