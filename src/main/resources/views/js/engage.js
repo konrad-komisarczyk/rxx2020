@@ -24,4 +24,7 @@ function engage(e) {
 
 function hideCombatReport() {
     document.getElementById("combatReportPanel").style.visibility = "hidden";
+    document.getElementById("reportText").innerText = "";
+    document.getElementById("itemDroppedInfo").innerText = "";
+
 }
