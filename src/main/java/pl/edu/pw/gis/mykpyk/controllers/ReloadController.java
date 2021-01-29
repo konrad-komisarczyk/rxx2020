@@ -85,7 +85,7 @@ public class ReloadController {
         EnemyType enemyType = enemyTypeRepository.findById((long) enemy.getEnemyTypeId()).get();
 
         return new EnemyToDisplay(enemy.getId(), enemyType.getName(), enemy.getEnemyTypeId(),
-                enemy.getLng(), enemy.getLat(), enemyType.getImage());
+                enemy.getLng(), enemy.getLat(), enemyType.getImage(), enemyType.getDetails());
     }
 
 }

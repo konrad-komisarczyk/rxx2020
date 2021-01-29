@@ -1,4 +1,4 @@
-package pl.edu.pw.gis.mykpyk.displays;
+package pl.edu.pw.gis.mykpyk.forms;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;

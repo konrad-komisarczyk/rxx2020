@@ -6,7 +6,7 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
-import pl.edu.pw.gis.mykpyk.displays.AvatarLink;
+import pl.edu.pw.gis.mykpyk.forms.AvatarLink;
 import pl.edu.pw.gis.mykpyk.domain.*;
 
 import javax.inject.Inject;
