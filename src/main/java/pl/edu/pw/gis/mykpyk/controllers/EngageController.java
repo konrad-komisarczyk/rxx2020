@@ -85,7 +85,7 @@ public class EngageController {
 
                         if (heroHealth <= 0) { //lost and died
                             report.finish(false);
-                            hero.setHealth(0);
+                            hero.setHealth(hero.getMaxHealth());
                             hero.setExp(MainConf.neededExpForLvl.get(hero.getLevel()));
                         } else { //won
                             report.finish(true);
